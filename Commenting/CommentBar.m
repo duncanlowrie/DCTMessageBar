@@ -17,9 +17,18 @@
 
 @implementation CommentBar
 
+#pragma mark - UIView
+
 - (BOOL)translatesAutoresizingMaskIntoConstraints {
 	return NO;
 }
+
+// To force the view to get a contentScaleFactor
+- (void)drawRect:(CGRect)rect {
+	[super drawRect:rect];
+}
+
+#pragma mark - CommentBar
 
 - (void)setPreferredMaxLayoutWidth:(CGFloat)preferredMaxLayoutWidth {
 	_preferredMaxLayoutWidth = preferredMaxLayoutWidth;
@@ -39,10 +48,6 @@
 	self.textView.layer.cornerRadius = 5.0f;
 	self.textView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 	self.textView.layer.borderWidth = 1.0f/self.contentScaleFactor;
-}
-
-- (void)drawRect:(CGRect)rect {
-	[super drawRect:rect];
 }
 
 #pragma mark - UITextViewDelegate

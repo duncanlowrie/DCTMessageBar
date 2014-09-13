@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6246" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6239"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -80,19 +81,29 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="NG9-bQ-wDX" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="2XQ-2B-i2w"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="NG9-bQ-wDX" secondAttribute="bottom" id="d2h-YP-Bwh"/>
                             <constraint firstAttribute="trailing" secondItem="NG9-bQ-wDX" secondAttribute="trailing" id="dD9-7W-6d6"/>
-                            <constraint firstItem="JcX-VJ-uNG" firstAttribute="top" secondItem="NG9-bQ-wDX" secondAttribute="bottom" id="rTW-5L-c6t"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="XXa-3I-uE6" appends="YES" id="kNN-h1-6Ky"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="X8b-sF-vfO"/>
                     <connections>
+                        <outlet property="barBottomConstraint" destination="d2h-YP-Bwh" id="k2M-f8-4hl"/>
                         <outlet property="commentBar" destination="NG9-bQ-wDX" id="ddO-7z-lPj"/>
                         <outlet property="maximumBarHeightConstraint" destination="LkY-iy-CRu" id="qJi-yj-NEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwQ-Bt-N91" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XXa-3I-uE6">
+                    <connections>
+                        <action selector="stopEditing:" destination="H2w-dY-2f9" id="qXZ-ad-KEV"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="665" y="64"/>
         </scene>
