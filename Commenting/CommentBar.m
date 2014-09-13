@@ -39,10 +39,6 @@
 	self.textView.layer.cornerRadius = 5.0f;
 	self.textView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 	self.textView.layer.borderWidth = 1.0f/self.contentScaleFactor;
-
-	NSLog(@"%@:%@ contentInset: %@", self, NSStringFromSelector(_cmd), NSStringFromUIEdgeInsets(self.textView.contentInset));
-
-//	NSLog(@"%@:%@ %@", self, NSStringFromSelector(_cmd), NSStringFromUIEdgeInsets(self.textView.));
 }
 
 - (void)drawRect:(CGRect)rect {
@@ -54,33 +50,5 @@
 - (void)textViewDidChange:(UITextView *)textView {
 	[self invalidateIntrinsicContentSize];
 }
-
-//- (CGSize)intrinsicContentSize {
-//
-//	CGSize targetSize = CGSizeMake(CGRectGetWidth(self.bounds), 0);
-//
-//	CGFloat sendWidth = [self.sendButton intrinsicContentSize].width;
-//	CGFloat totalMargins = [[self.marginConstraints valueForKeyPath:@"@sum.constant"] floatValue];
-//	self.textView.preferredMaxLayoutWidth = targetSize.width - totalMargins - sendWidth;
-//
-//	return [self systemLayoutSizeFittingSize:targetSize];
-//}
-
-//- (CGSize)systemLayoutSizeFittingSize:(CGSize)targetSize
-//		withHorizontalFittingPriority:(UILayoutPriority)horizontalFittingPriority
-//			  verticalFittingPriority:(UILayoutPriority)verticalFittingPriority {
-//
-//	CGFloat sendWidth = [self.sendButton intrinsicContentSize].width;
-//	CGFloat totalMargins = [[self.marginConstraints valueForKeyPath:@"@sum.constant"] floatValue];
-//	self.textView.preferredMaxLayoutWidth = targetSize.width - totalMargins - sendWidth;
-//
-//	CGSize size = [super systemLayoutSizeFittingSize:targetSize
-//				withHorizontalFittingPriority:horizontalFittingPriority
-//					  verticalFittingPriority:verticalFittingPriority];
-//
-//	NSLog(@"%@:%@ %@", self, NSStringFromSelector(_cmd), NSStringFromCGSize(size));
-//
-//	return size;
-//}
 
 @end
