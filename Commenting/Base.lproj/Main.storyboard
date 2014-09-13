@@ -19,10 +19,10 @@
             </objects>
             <point key="canvasLocation" x="-148" y="64"/>
         </scene>
-        <!--View Controller-->
+        <!--Comment Bar View Controller-->
         <scene sceneID="Eah-Gd-4H4">
             <objects>
-                <viewController id="H2w-dY-2f9" sceneMemberID="viewController">
+                <viewController id="H2w-dY-2f9" customClass="CommentBarViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SzY-f8-m7K"/>
                         <viewControllerLayoutGuide type="bottom" id="JcX-VJ-uNG"/>
@@ -31,79 +31,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jNk-DH-jNC">
-                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="NG9-bQ-wDX" customClass="CommentBar">
+                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                                <subviews>
+                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i16-N6-eSQ">
+                                        <rect key="frame" x="0.0" y="1" width="600" height="49"/>
+                                        <items/>
+                                    </toolbar>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgv-kk-kaK" customClass="IntrinsicTextView">
+                                        <rect key="frame" x="10" y="10" width="531" height="30"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="NG9-bQ-wDX" id="biU-J0-c03"/>
+                                        </connections>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjg-Mx-7vo">
+                                        <rect key="frame" x="551" y="9" width="39" height="32"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                        <state key="normal" title="Send">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="UCW-qD-jE1"/>
+                                    <constraint firstAttribute="trailing" secondItem="i16-N6-eSQ" secondAttribute="trailing" id="3bM-vz-c6p"/>
+                                    <constraint firstAttribute="centerY" secondItem="zjg-Mx-7vo" secondAttribute="centerY" id="5fa-pE-pXo"/>
+                                    <constraint firstAttribute="bottom" secondItem="Kgv-kk-kaK" secondAttribute="bottom" constant="10" id="DEI-Re-YGR"/>
+                                    <constraint firstItem="Kgv-kk-kaK" firstAttribute="leading" secondItem="NG9-bQ-wDX" secondAttribute="leading" constant="10" id="GWN-Pp-SVt"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="LkY-iy-CRu"/>
+                                    <constraint firstItem="i16-N6-eSQ" firstAttribute="leading" secondItem="NG9-bQ-wDX" secondAttribute="leading" id="PWj-kj-Maz"/>
+                                    <constraint firstItem="zjg-Mx-7vo" firstAttribute="leading" secondItem="Kgv-kk-kaK" secondAttribute="trailing" constant="10" id="SAb-JR-2Va"/>
+                                    <constraint firstItem="i16-N6-eSQ" firstAttribute="top" secondItem="NG9-bQ-wDX" secondAttribute="top" constant="1" id="TZM-Nt-jWX"/>
+                                    <constraint firstAttribute="bottom" secondItem="i16-N6-eSQ" secondAttribute="bottom" id="nLZ-Pt-6uK"/>
+                                    <constraint firstAttribute="trailing" secondItem="zjg-Mx-7vo" secondAttribute="trailing" constant="10" id="rbF-al-PkK"/>
+                                    <constraint firstItem="Kgv-kk-kaK" firstAttribute="top" secondItem="NG9-bQ-wDX" secondAttribute="top" constant="10" id="yEc-LP-mjW"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="Sik-wT-Ghy" kind="embed" id="iRl-k7-LMp"/>
+                                    <outlet property="sendButton" destination="zjg-Mx-7vo" id="ixh-kb-9Ic"/>
+                                    <outlet property="textView" destination="Kgv-kk-kaK" id="nca-bh-Ebi"/>
+                                    <outletCollection property="marginConstraints" destination="GWN-Pp-SVt" id="uxi-eE-3ws"/>
+                                    <outletCollection property="marginConstraints" destination="SAb-JR-2Va" id="836-f1-C9B"/>
+                                    <outletCollection property="marginConstraints" destination="rbF-al-PkK" id="83k-Zl-nz5"/>
                                 </connections>
-                            </containerView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="jNk-DH-jNC" secondAttribute="trailing" id="eEj-Ti-2go"/>
-                            <constraint firstItem="jNk-DH-jNC" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="xZm-DA-MMN"/>
-                            <constraint firstItem="JcX-VJ-uNG" firstAttribute="top" secondItem="jNk-DH-jNC" secondAttribute="bottom" id="yEV-fM-psh"/>
+                            <constraint firstItem="NG9-bQ-wDX" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="2XQ-2B-i2w"/>
+                            <constraint firstAttribute="trailing" secondItem="NG9-bQ-wDX" secondAttribute="trailing" id="dD9-7W-6d6"/>
+                            <constraint firstItem="JcX-VJ-uNG" firstAttribute="top" secondItem="NG9-bQ-wDX" secondAttribute="bottom" id="rTW-5L-c6t"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="X8b-sF-vfO"/>
+                    <connections>
+                        <outlet property="commentBar" destination="NG9-bQ-wDX" id="ddO-7z-lPj"/>
+                        <outlet property="maximumBarHeightConstraint" destination="LkY-iy-CRu" id="qJi-yj-NEb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwQ-Bt-N91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="665" y="64"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="w4B-UG-Ipz">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Sik-wT-Ghy" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="lFa-WW-o0x"/>
-                        <viewControllerLayoutGuide type="bottom" id="b3Z-Z0-s3r"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="NG9-bQ-wDX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i16-N6-eSQ">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
-                                <items/>
-                            </toolbar>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="531" placeholderIntrinsicHeight="230" translatesAutoresizingMaskIntoConstraints="NO" id="Kgv-kk-kaK" customClass="ISUTextView">
-                                <rect key="frame" x="10" y="10" width="531" height="280"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjg-Mx-7vo">
-                                <rect key="frame" x="551" y="134" width="39" height="32"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                <state key="normal" title="Send">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="i16-N6-eSQ" secondAttribute="trailing" id="3bM-vz-c6p"/>
-                            <constraint firstAttribute="centerY" secondItem="zjg-Mx-7vo" secondAttribute="centerY" id="5fa-pE-pXo"/>
-                            <constraint firstAttribute="bottom" secondItem="Kgv-kk-kaK" secondAttribute="bottom" constant="10" id="DEI-Re-YGR"/>
-                            <constraint firstItem="Kgv-kk-kaK" firstAttribute="leading" secondItem="NG9-bQ-wDX" secondAttribute="leading" constant="10" id="GWN-Pp-SVt"/>
-                            <constraint firstItem="i16-N6-eSQ" firstAttribute="leading" secondItem="NG9-bQ-wDX" secondAttribute="leading" id="PWj-kj-Maz"/>
-                            <constraint firstItem="zjg-Mx-7vo" firstAttribute="leading" secondItem="Kgv-kk-kaK" secondAttribute="trailing" constant="10" id="SAb-JR-2Va"/>
-                            <constraint firstItem="i16-N6-eSQ" firstAttribute="top" secondItem="NG9-bQ-wDX" secondAttribute="top" id="TZM-Nt-jWX"/>
-                            <constraint firstAttribute="bottom" secondItem="i16-N6-eSQ" secondAttribute="bottom" id="nLZ-Pt-6uK"/>
-                            <constraint firstAttribute="trailing" secondItem="zjg-Mx-7vo" secondAttribute="trailing" constant="10" id="rbF-al-PkK"/>
-                            <constraint firstItem="Kgv-kk-kaK" firstAttribute="top" secondItem="NG9-bQ-wDX" secondAttribute="top" constant="10" id="yEc-LP-mjW"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PkZ-hI-Hcm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="665" y="723"/>
         </scene>
     </scenes>
 </document>

@@ -1,5 +1,5 @@
 //
-//  CommentBarViewController.h
+//  CommentBar.h
 //  Commenting
 //
 //  Created by Daniel Tull on 13.09.2014.
@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface CommentBarViewController : UIViewController
-
+@interface CommentBar : UIView
+@property (nonatomic) CGFloat preferredMaxLayoutWidth;
 @end

@@ -14,6 +14,8 @@
 		24C949F019C4289200BF16D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C949EE19C4289200BF16D8 /* LaunchScreen.xib */; };
 		24C94A0719C42A6A00BF16D8 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0619C42A6A00BF16D8 /* CommentViewController.m */; };
 		24C94A0A19C42A8E00BF16D8 /* CommentBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0919C42A8E00BF16D8 /* CommentBarViewController.m */; };
+		24C94A0D19C42C0100BF16D8 /* IntrinsicTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0C19C42C0100BF16D8 /* IntrinsicTextView.m */; };
+		24C94A1019C42C4900BF16D8 /* CommentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0F19C42C4900BF16D8 /* CommentBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,10 @@
 		24C94A0619C42A6A00BF16D8 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
 		24C94A0819C42A8E00BF16D8 /* CommentBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentBarViewController.h; sourceTree = "<group>"; };
 		24C94A0919C42A8E00BF16D8 /* CommentBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBarViewController.m; sourceTree = "<group>"; };
+		24C94A0B19C42C0100BF16D8 /* IntrinsicTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntrinsicTextView.h; sourceTree = "<group>"; };
+		24C94A0C19C42C0100BF16D8 /* IntrinsicTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntrinsicTextView.m; sourceTree = "<group>"; };
+		24C94A0E19C42C4900BF16D8 /* CommentBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentBar.h; sourceTree = "<group>"; };
+		24C94A0F19C42C4900BF16D8 /* CommentBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +73,10 @@
 				24C94A0619C42A6A00BF16D8 /* CommentViewController.m */,
 				24C94A0819C42A8E00BF16D8 /* CommentBarViewController.h */,
 				24C94A0919C42A8E00BF16D8 /* CommentBarViewController.m */,
+				24C94A0B19C42C0100BF16D8 /* IntrinsicTextView.h */,
+				24C94A0C19C42C0100BF16D8 /* IntrinsicTextView.m */,
+				24C94A0E19C42C4900BF16D8 /* CommentBar.h */,
+				24C94A0F19C42C4900BF16D8 /* CommentBar.m */,
 				24C949E919C4289200BF16D8 /* Main.storyboard */,
 				24C949EC19C4289200BF16D8 /* Images.xcassets */,
 				24C949EE19C4289200BF16D8 /* LaunchScreen.xib */,
@@ -147,9 +157,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				24C94A0A19C42A8E00BF16D8 /* CommentBarViewController.m in Sources */,
+				24C94A0D19C42C0100BF16D8 /* IntrinsicTextView.m in Sources */,
 				24C94A0719C42A6A00BF16D8 /* CommentViewController.m in Sources */,
 				24C949E219C4289200BF16D8 /* AppDelegate.m in Sources */,
 				24C949DF19C4289200BF16D8 /* main.m in Sources */,
+				24C94A1019C42C4900BF16D8 /* CommentBar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
