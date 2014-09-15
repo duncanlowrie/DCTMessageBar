@@ -7,15 +7,26 @@
 //
 
 #import "CommentViewController.h"
+#import "CommentBar.h"
 
 @interface CommentViewController () <UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic) IBOutlet CommentBar *commentBar;
 @end
 
 @implementation CommentViewController
 
+- (void)viewDidLoad {
+	[super viewDidLoad];
+	[self.commentBar removeFromSuperview];
+}
+
 - (BOOL)canBecomeFirstResponder {
 	return YES;
+}
+
+- (UIView *)inputAccessoryView {
+	return self.commentBar;
 }
 
 #pragma mark - UITableViewDataSource

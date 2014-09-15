@@ -19,7 +19,7 @@
             </objects>
             <point key="canvasLocation" x="-148" y="64"/>
         </scene>
-        <!--Comment View Controller-->
+        <!--Commenting-->
         <scene sceneID="Eah-Gd-4H4">
             <objects>
                 <viewController id="H2w-dY-2f9" customClass="CommentViewController" sceneMemberID="viewController">
@@ -55,55 +55,15 @@
                                     <outlet property="dataSource" destination="H2w-dY-2f9" id="VdK-3v-l1t"/>
                                 </connections>
                             </tableView>
-                            <containerView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="sBj-0g-rQe">
-                                <rect key="frame" x="0.0" y="550" width="600" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="tT2-TR-FZw"/>
-                                </constraints>
-                                <connections>
-                                    <segue destination="Rj4-KZ-BYq" kind="embed" id="QyJ-QB-ig5"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="EkM-yx-GQW" secondAttribute="trailing" id="7kh-3m-v4Z"/>
-                            <constraint firstAttribute="bottom" secondItem="sBj-0g-rQe" secondAttribute="bottom" id="O8g-1Z-PNV"/>
-                            <constraint firstAttribute="bottom" secondItem="EkM-yx-GQW" secondAttribute="bottom" id="P3K-lh-nM4"/>
-                            <constraint firstItem="sBj-0g-rQe" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="Yh5-kG-JnS"/>
-                            <constraint firstItem="EkM-yx-GQW" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="aKE-qu-2u1"/>
-                            <constraint firstAttribute="trailing" secondItem="sBj-0g-rQe" secondAttribute="trailing" id="lr3-Q4-i25"/>
-                            <constraint firstItem="EkM-yx-GQW" firstAttribute="top" secondItem="4bh-1p-aB0" secondAttribute="top" id="n89-Cw-v0x"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="X8b-sF-vfO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fwQ-Bt-N91" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="665" y="64"/>
-        </scene>
-        <!--Comment Bar View Controller-->
-        <scene sceneID="2NT-tC-nCV">
-            <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Rj4-KZ-BYq" customClass="CommentBarViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="g6b-Sl-RPZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="bas-yg-yFD"/>
-                    </layoutGuides>
-                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="73T-Hc-3bT">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="NG9-bQ-wDX" customClass="CommentBar">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="NG9-bQ-wDX" customClass="CommentBar">
+                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
                                 <subviews>
                                     <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i16-N6-eSQ">
-                                        <rect key="frame" x="0.0" y="1" width="600" height="49"/>
+                                        <rect key="frame" x="0.0" y="1" width="600" height="59"/>
                                         <items/>
                                     </toolbar>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgv-kk-kaK" userLabel="Text View" customClass="IntrinsicTextView">
-                                        <rect key="frame" x="10" y="10" width="531" height="30"/>
+                                        <rect key="frame" x="10" y="10" width="531" height="40"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
@@ -113,14 +73,14 @@
                                         </connections>
                                     </textView>
                                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="33" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Add comment" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Y9-J6-ug3" userLabel="Placeholder" customClass="IntrinsicTextView">
-                                        <rect key="frame" x="10" y="7" width="200" height="33"/>
+                                        <rect key="frame" x="10" y="17" width="200" height="33"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjg-Mx-7vo" userLabel="Send">
-                                        <rect key="frame" x="551" y="7" width="39" height="32"/>
+                                        <rect key="frame" x="551" y="17" width="39" height="32"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <state key="normal" title="Send">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,21 +113,25 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="NG9-bQ-wDX" firstAttribute="top" secondItem="73T-Hc-3bT" secondAttribute="top" id="eMv-Pw-MSL"/>
-                            <constraint firstAttribute="bottom" secondItem="NG9-bQ-wDX" secondAttribute="bottom" id="efM-Bo-rNP"/>
-                            <constraint firstItem="NG9-bQ-wDX" firstAttribute="leading" secondItem="73T-Hc-3bT" secondAttribute="leading" id="nJn-jO-BuK"/>
-                            <constraint firstAttribute="trailing" secondItem="NG9-bQ-wDX" secondAttribute="trailing" id="ng1-aP-Xyl"/>
+                            <constraint firstAttribute="bottom" secondItem="NG9-bQ-wDX" secondAttribute="bottom" id="4ME-9D-8Ic"/>
+                            <constraint firstAttribute="trailing" secondItem="EkM-yx-GQW" secondAttribute="trailing" id="7kh-3m-v4Z"/>
+                            <constraint firstAttribute="bottom" secondItem="EkM-yx-GQW" secondAttribute="bottom" id="P3K-lh-nM4"/>
+                            <constraint firstItem="NG9-bQ-wDX" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="UrU-YE-onl"/>
+                            <constraint firstItem="EkM-yx-GQW" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="aKE-qu-2u1"/>
+                            <constraint firstItem="EkM-yx-GQW" firstAttribute="top" secondItem="4bh-1p-aB0" secondAttribute="top" id="n89-Cw-v0x"/>
+                            <constraint firstAttribute="trailing" secondItem="NG9-bQ-wDX" secondAttribute="trailing" id="wBQ-Ru-Tsx"/>
                         </constraints>
                     </view>
-                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Commenting" id="X8b-sF-vfO"/>
                     <connections>
-                        <outlet property="commentBar" destination="NG9-bQ-wDX" id="FQk-oZ-uFl"/>
+                        <outlet property="commentBar" destination="NG9-bQ-wDX" id="n6n-58-ePv"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4Kc-nh-Te9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fwQ-Bt-N91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="665" y="579"/>
+            <point key="canvasLocation" x="665" y="64"/>
         </scene>
     </scenes>
 </document>
