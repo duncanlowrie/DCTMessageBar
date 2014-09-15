@@ -8,10 +8,26 @@
 
 #import "CommentViewController.h"
 
-@interface CommentViewController ()
+@interface CommentViewController () <UITableViewDataSource>
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end
 
 @implementation CommentViewController
 
+- (BOOL)canBecomeFirstResponder {
+	return YES;
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	return 100;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+	cell.textLabel.text = [NSString stringWithFormat:@"%@.%@", @(indexPath.section), @(indexPath.row)];
+	return cell;
+}
 
 @end

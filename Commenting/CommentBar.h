@@ -9,5 +9,4 @@
 @import UIKit;
 
 @interface CommentBar : UIView
-@property (nonatomic) CGFloat preferredMaxLayoutWidth;
 @end
