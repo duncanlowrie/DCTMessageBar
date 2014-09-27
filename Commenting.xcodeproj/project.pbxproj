@@ -15,6 +15,7 @@
 		24C94A0719C42A6A00BF16D8 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0619C42A6A00BF16D8 /* CommentViewController.m */; };
 		24C94A0D19C42C0100BF16D8 /* IntrinsicTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0C19C42C0100BF16D8 /* IntrinsicTextView.m */; };
 		24C94A1019C42C4900BF16D8 /* CommentBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0F19C42C4900BF16D8 /* CommentBar.m */; };
+		B571FAAB19D74E530043D8B7 /* CommentBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B571FAA919D74E530043D8B7 /* CommentBar.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		24C94A0C19C42C0100BF16D8 /* IntrinsicTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntrinsicTextView.m; sourceTree = "<group>"; };
 		24C94A0E19C42C4900BF16D8 /* CommentBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentBar.h; sourceTree = "<group>"; };
 		24C94A0F19C42C4900BF16D8 /* CommentBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentBar.m; sourceTree = "<group>"; };
+		B571FAAA19D74E530043D8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/CommentBar.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				24C94A0C19C42C0100BF16D8 /* IntrinsicTextView.m */,
 				24C94A0E19C42C4900BF16D8 /* CommentBar.h */,
 				24C94A0F19C42C4900BF16D8 /* CommentBar.m */,
+				B571FAA919D74E530043D8B7 /* CommentBar.xib */,
 				24C949E919C4289200BF16D8 /* Main.storyboard */,
 				24C949EC19C4289200BF16D8 /* Images.xcassets */,
 				24C949EE19C4289200BF16D8 /* LaunchScreen.xib */,
@@ -141,6 +144,7 @@
 				24C949EB19C4289200BF16D8 /* Main.storyboard in Resources */,
 				24C949F019C4289200BF16D8 /* LaunchScreen.xib in Resources */,
 				24C949ED19C4289200BF16D8 /* Images.xcassets in Resources */,
+				B571FAAB19D74E530043D8B7 /* CommentBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,6 +180,14 @@
 				24C949EF19C4289200BF16D8 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		B571FAA919D74E530043D8B7 /* CommentBar.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B571FAAA19D74E530043D8B7 /* Base */,
+			);
+			name = CommentBar.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -304,6 +316,7 @@
 				24C94A0119C4289300BF16D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

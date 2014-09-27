@@ -9,4 +9,7 @@
 @import UIKit;
 
 @interface CommentBar : UIView
+
++ (instancetype)view;
+
 @end

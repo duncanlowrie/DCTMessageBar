@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rS3-R9-Ivy">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
@@ -55,78 +55,17 @@
                                     <outlet property="dataSource" destination="H2w-dY-2f9" id="VdK-3v-l1t"/>
                                 </connections>
                             </tableView>
-                            <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="NG9-bQ-wDX" customClass="CommentBar">
-                                <rect key="frame" x="0.0" y="540" width="600" height="60"/>
-                                <subviews>
-                                    <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i16-N6-eSQ">
-                                        <rect key="frame" x="0.0" y="1" width="600" height="59"/>
-                                        <items/>
-                                    </toolbar>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Kgv-kk-kaK" userLabel="Text View" customClass="IntrinsicTextView">
-                                        <rect key="frame" x="10" y="10" width="531" height="40"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="NG9-bQ-wDX" id="biU-J0-c03"/>
-                                        </connections>
-                                    </textView>
-                                    <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="33" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="Add comment" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Y9-J6-ug3" userLabel="Placeholder" customClass="IntrinsicTextView">
-                                        <rect key="frame" x="10" y="17" width="200" height="33"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjg-Mx-7vo" userLabel="Send">
-                                        <rect key="frame" x="551" y="17" width="39" height="32"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <state key="normal" title="Send">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="i16-N6-eSQ" secondAttribute="trailing" id="3bM-vz-c6p"/>
-                                    <constraint firstItem="8Y9-J6-ug3" firstAttribute="centerY" secondItem="zjg-Mx-7vo" secondAttribute="centerY" constant="0.5" id="8zC-22-sPe"/>
-                                    <constraint firstAttribute="bottom" secondItem="Kgv-kk-kaK" secondAttribute="bottom" constant="10" id="DEI-Re-YGR"/>
-                                    <constraint firstItem="8Y9-J6-ug3" firstAttribute="leading" secondItem="Kgv-kk-kaK" secondAttribute="leading" id="DV4-rU-eAq"/>
-                                    <constraint firstItem="Kgv-kk-kaK" firstAttribute="leading" secondItem="NG9-bQ-wDX" secondAttribute="leading" constant="10" id="GWN-Pp-SVt"/>
-                                    <constraint firstItem="i16-N6-eSQ" firstAttribute="leading" secondItem="NG9-bQ-wDX" secondAttribute="leading" id="PWj-kj-Maz"/>
-                                    <constraint firstItem="zjg-Mx-7vo" firstAttribute="leading" secondItem="Kgv-kk-kaK" secondAttribute="trailing" constant="10" id="SAb-JR-2Va"/>
-                                    <constraint firstItem="i16-N6-eSQ" firstAttribute="top" secondItem="NG9-bQ-wDX" secondAttribute="top" constant="1" id="TZM-Nt-jWX"/>
-                                    <constraint firstItem="8Y9-J6-ug3" firstAttribute="bottom" secondItem="Kgv-kk-kaK" secondAttribute="bottom" id="dgG-g6-7eQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="i16-N6-eSQ" secondAttribute="bottom" id="nLZ-Pt-6uK"/>
-                                    <constraint firstAttribute="trailing" secondItem="zjg-Mx-7vo" secondAttribute="trailing" constant="10" id="rbF-al-PkK"/>
-                                    <constraint firstItem="Kgv-kk-kaK" firstAttribute="top" secondItem="NG9-bQ-wDX" secondAttribute="top" constant="10" id="yEc-LP-mjW"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="placeholder" destination="8Y9-J6-ug3" id="NGe-9g-T1Q"/>
-                                    <outlet property="sendButton" destination="zjg-Mx-7vo" id="ixh-kb-9Ic"/>
-                                    <outlet property="textView" destination="Kgv-kk-kaK" id="nca-bh-Ebi"/>
-                                    <outletCollection property="marginConstraints" destination="GWN-Pp-SVt" id="uxi-eE-3ws"/>
-                                    <outletCollection property="marginConstraints" destination="SAb-JR-2Va" id="836-f1-C9B"/>
-                                    <outletCollection property="marginConstraints" destination="rbF-al-PkK" id="83k-Zl-nz5"/>
-                                </connections>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="NG9-bQ-wDX" secondAttribute="bottom" id="4ME-9D-8Ic"/>
-                            <constraint firstAttribute="trailing" secondItem="EkM-yx-GQW" secondAttribute="trailing" id="7kh-3m-v4Z"/>
-                            <constraint firstAttribute="bottom" secondItem="EkM-yx-GQW" secondAttribute="bottom" id="P3K-lh-nM4"/>
-                            <constraint firstItem="NG9-bQ-wDX" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="UrU-YE-onl"/>
-                            <constraint firstItem="EkM-yx-GQW" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="aKE-qu-2u1"/>
-                            <constraint firstItem="EkM-yx-GQW" firstAttribute="top" secondItem="4bh-1p-aB0" secondAttribute="top" id="n89-Cw-v0x"/>
-                            <constraint firstAttribute="trailing" secondItem="NG9-bQ-wDX" secondAttribute="trailing" id="wBQ-Ru-Tsx"/>
+                            <constraint firstItem="JcX-VJ-uNG" firstAttribute="top" secondItem="EkM-yx-GQW" secondAttribute="bottom" id="HvY-by-eK7"/>
+                            <constraint firstAttribute="trailing" secondItem="EkM-yx-GQW" secondAttribute="trailing" id="Yvo-Nv-QHg"/>
+                            <constraint firstItem="EkM-yx-GQW" firstAttribute="top" secondItem="4bh-1p-aB0" secondAttribute="top" id="nPL-5G-s3N"/>
+                            <constraint firstItem="EkM-yx-GQW" firstAttribute="leading" secondItem="4bh-1p-aB0" secondAttribute="leading" id="yQm-PA-l76"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Commenting" id="X8b-sF-vfO"/>
-                    <connections>
-                        <outlet property="commentBar" destination="NG9-bQ-wDX" id="n6n-58-ePv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fwQ-Bt-N91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,14 +11,14 @@
 
 @interface CommentViewController () <UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic) IBOutlet CommentBar *commentBar;
+@property (nonatomic) CommentBar *commentBar;
 @end
 
 @implementation CommentViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-	[self.commentBar removeFromSuperview];
+    self.commentBar = [CommentBar view];
 }
 
 - (BOOL)canBecomeFirstResponder {
