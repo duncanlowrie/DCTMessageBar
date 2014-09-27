@@ -33,15 +33,26 @@
 }
 
 - (void)layoutSubviews {
+	[super layoutSubviews];
 	CGSize currentSize = self.frame.size;
 	CGFloat sendWidth = [self.sendButton intrinsicContentSize].width;
 	CGFloat totalMargins = [[self.marginConstraints valueForKeyPath:@"@sum.constant"] floatValue];
 	self.textView.preferredMaxLayoutWidth = currentSize.width - totalMargins - sendWidth;
-	[super layoutSubviews];
+	[self calculateFrame];
 }
 
 #pragma mark - CommentBar
 
+- (void)calculateFrame {
+	CGSize currentSize = self.frame.size;
+	CGSize targetSize = CGSizeMake(currentSize.width, 0);
+	CGSize size = [self systemLayoutSizeFittingSize:targetSize];
+	CGRect frame = self.frame;
+	frame.origin.y += currentSize.height - size.height;
+	frame.size.height = size.height;
+	self.frame = frame;
+	[self layoutIfNeeded];
+}
 
 - (void)setTextView:(IntrinsicTextView *)textView {
 	_textView = textView;
@@ -59,7 +70,10 @@
 #pragma mark - UITextViewDelegate
 
 - (void)textViewDidChange:(UITextView *)textView {
+	[self invalidateIntrinsicContentSize];
+	[textView invalidateIntrinsicContentSize];
 	[self updatePlaceholderAlpha];
+	[self setNeedsLayout];
 }
 
 @end
