@@ -48,13 +48,17 @@
         if ([constraint.identifier isEqualToString:@"_UIKBAutolayoutHeightConstraint"]) { // This is the constraint that controls the height!!
 
 			[self removeConstraint:constraint];
+			[self.textView invalidateIntrinsicContentSize];
+			[self invalidateIntrinsicContentSize];
 			CGSize currentSize = self.frame.size;
 			CGSize targetSize = CGSizeMake(currentSize.width, 0);
 			CGSize size = [self systemLayoutSizeFittingSize:targetSize];
-			[self addConstraint:constraint];
 
-			NSLog(@"%@ %@", constraint, @(size.height));
+
             constraint.constant = size.height;
+			[self addConstraint:constraint];
+			NSLog(@"%@ %@", constraint, @(size.height));
+			[self layoutIfNeeded];
         }
     }
 }
