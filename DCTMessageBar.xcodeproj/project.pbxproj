@@ -105,8 +105,8 @@
 		24C949D019C4289200BF16D8 = {
 			isa = PBXGroup;
 			children = (
-				24C949DB19C4289200BF16D8 /* DCTMessageBar Demo */,
 				24D55DDF19D80AB3005E2016 /* DCTMessageBar */,
+				24C949DB19C4289200BF16D8 /* DCTMessageBar Demo */,
 				24D55E0719D80B68005E2016 /* Configurations */,
 				24C949DA19C4289200BF16D8 /* Products */,
 			);
@@ -250,8 +250,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				24C949D819C4289200BF16D8 /* DCTMessageBar Demo */,
 				24D55DDD19D80AB3005E2016 /* DCTMessageBar */,
+				24C949D819C4289200BF16D8 /* DCTMessageBar Demo */,
 			);
 		};
 /* End PBXProject section */
@@ -430,6 +430,7 @@
 				24D55DF819D80AB4005E2016 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
