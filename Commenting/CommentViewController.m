@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    self.commentBar = [CommentBar view];
+    self.commentBar = [CommentBar new];
 }
 
 - (BOOL)canBecomeFirstResponder {

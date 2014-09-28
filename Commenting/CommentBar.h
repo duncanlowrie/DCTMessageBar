@@ -9,7 +9,6 @@
 @import UIKit;
 
 @interface CommentBar : UIView
-
-+ (instancetype)view;
-
+@property (nonatomic, copy) NSString *placeholder;
+@property (nonatomic) CGFloat maximumHeight;
 @end
