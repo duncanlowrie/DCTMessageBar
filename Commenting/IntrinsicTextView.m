@@ -15,6 +15,11 @@
 	[self invalidateIntrinsicContentSize];
 }
 
+- (void)setText:(NSString *)text {
+	[super setText:text];
+	[self invalidateIntrinsicContentSize];
+}
+
 - (CGSize)intrinsicContentSize {
 	CGSize max = CGSizeMake(self.preferredMaxLayoutWidth, CGFLOAT_MAX);
 	CGSize size = CGSizeZero;

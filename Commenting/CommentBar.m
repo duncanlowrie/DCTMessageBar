@@ -74,10 +74,10 @@
 }
 
 - (void)updatePlaceholderAlpha {
-	BOOL hidden = self.textView.text.length > 0;
-	CGFloat alpha = hidden ? 0.0f : 1.0f;
+	BOOL empty = self.textView.text.length == 0;
+	CGFloat alpha = empty ? 1.0f : 0.0f;
 	self.placeholderTextView.alpha = alpha;
-	self.sendButton.enabled = hidden;
+	self.sendButton.enabled = !empty;
 }
 
 - (NSLayoutConstraint *)heightConstraint {
@@ -108,9 +108,19 @@
 	_textView.layer.borderColor = [[UIColor colorWithWhite:0.8f alpha:1.0f] CGColor];
 }
 
+- (void)setText:(NSString *)text {
+	self.textView.text = text;
+}
+
+- (NSString *)text {
+	return self.textView.text;
+}
+
 - (void)setPlaceholder:(NSString *)placeholder {
 	_placeholder = [placeholder copy];
 	self.placeholderTextView.text = _placeholder;
+	self.placeholderTextView.textColor = [UIColor lightGrayColor];
+	self.placeholderTextView.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
 }
 
 - (void)setMaximumHeight:(CGFloat)maximumHeight {

@@ -19,6 +19,12 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
     self.commentBar = [CommentBar new];
+	self.commentBar.placeholder = @"Add comment";
+}
+
+- (void)viewDidLayoutSubviews {
+	[super viewDidLayoutSubviews];
+	self.commentBar.maximumHeight = CGRectGetHeight(self.view.bounds) / 3.0f;
 }
 
 - (BOOL)canBecomeFirstResponder {
