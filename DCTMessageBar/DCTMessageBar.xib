@@ -32,6 +32,9 @@
                             <state key="normal" title="Send">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <connections>
+                                <action selector="send:" destination="BBo-dC-yi3" eventType="touchUpInside" id="eZ4-Rh-crI"/>
+                            </connections>
                         </button>
                         <textView opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" text="Placeholder" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLa-YX-Gh6" userLabel="Placeholder" customClass="DCTMessageBarTextView">
                             <rect key="frame" x="10" y="15" width="87" height="35"/>

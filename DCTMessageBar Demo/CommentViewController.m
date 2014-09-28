@@ -9,7 +9,7 @@
 #import "CommentViewController.h"
 @import DCTMessageBar;
 
-@interface CommentViewController () <UITableViewDataSource>
+@interface CommentViewController () <UITableViewDataSource, DCTMessageBarDelegate>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic) DCTMessageBar *commentBar;
 @end
@@ -20,6 +20,7 @@
 	[super viewDidLoad];
     self.commentBar = [DCTMessageBar new];
 	self.commentBar.placeholder = @"Add comment";
+	self.commentBar.delegate = self;
 }
 
 - (void)viewDidLayoutSubviews {
@@ -33,6 +34,12 @@
 
 - (UIView *)inputAccessoryView {
 	return self.commentBar;
+}
+
+#pragma mark - DCTMessageBarDelegate
+
+- (void)messageBarSendButtonTapped:(DCTMessageBar *)messageBar {
+	messageBar.text = nil;
 }
 
 #pragma mark - UITableViewDataSource

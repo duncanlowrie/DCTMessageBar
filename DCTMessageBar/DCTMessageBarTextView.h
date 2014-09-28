@@ -10,4 +10,5 @@
 
 @interface DCTMessageBarTextView : UITextView
 @property (nonatomic) CGFloat preferredMaxLayoutWidth;
+@property (nonatomic, getter = isEnabled) BOOL enabled;
 @end

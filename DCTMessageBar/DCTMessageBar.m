@@ -19,6 +19,8 @@
 
 @implementation DCTMessageBar
 
+#pragma mark - NSObject
+
 - (instancetype)init {
 	Class class = [self class];
 	NSString *name = NSStringFromClass(class);
@@ -38,7 +40,7 @@
 
 - (void)didMoveToSuperview {
 	[super didMoveToSuperview];
-	[self updatePlaceholderAlpha];
+	[self updateViews];
 	[self updateHeight];
 }
 
@@ -72,7 +74,7 @@
 	self.heightConstraint.constant = height;
 }
 
-- (void)updatePlaceholderAlpha {
+- (void)updateViews {
 	BOOL empty = self.textView.text.length == 0;
 	CGFloat alpha = empty ? 1.0f : 0.0f;
 	self.placeholderTextView.alpha = alpha;
@@ -109,6 +111,8 @@
 
 - (void)setText:(NSString *)text {
 	self.textView.text = text;
+	[self updateViews];
+	[self updateHeight];
 }
 
 - (NSString *)text {
@@ -127,10 +131,14 @@
 	[self updateHeight];
 }
 
+- (IBAction)send:(id)sender {
+	[self.delegate messageBarSendButtonTapped:self];
+}
+
 #pragma mark - UITextViewDelegate
 
 - (void)textViewDidChange:(UITextView *)textView {
-	[self updatePlaceholderAlpha];
+	[self updateViews];
 	[self updateHeight];
 }
 

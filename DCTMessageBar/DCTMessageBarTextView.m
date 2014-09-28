@@ -10,6 +10,11 @@
 
 @implementation DCTMessageBarTextView
 
+- (void)awakeFromNib {
+	[super awakeFromNib];
+	self.enabled = YES;
+}
+
 - (void)setPreferredMaxLayoutWidth:(CGFloat)preferredMaxLayoutWidth {
 	_preferredMaxLayoutWidth = preferredMaxLayoutWidth;
 	[self invalidateIntrinsicContentSize];

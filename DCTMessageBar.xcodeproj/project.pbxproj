@@ -20,6 +20,7 @@
 		24D55E0419D80B09005E2016 /* DCTMessageBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D55DFF19D80B09005E2016 /* DCTMessageBar.xib */; };
 		24D55E0519D80B09005E2016 /* DCTMessageBarTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D55E0019D80B09005E2016 /* DCTMessageBarTextView.h */; };
 		24D55E0619D80B09005E2016 /* DCTMessageBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D55E0119D80B09005E2016 /* DCTMessageBarTextView.m */; };
+		24D55E1319D80F5D005E2016 /* DCTMessageBarDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D55E1219D80D8C005E2016 /* DCTMessageBarDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		24D55E0F19D80B68005E2016 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		24D55E1019D80B68005E2016 /* Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Shared.xcconfig; sourceTree = "<group>"; };
 		24D55E1119D80B68005E2016 /* update.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = update.sh; sourceTree = "<group>"; };
+		24D55E1219D80D8C005E2016 /* DCTMessageBarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTMessageBarDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				24D55DFD19D80B09005E2016 /* DCTMessageBar.h */,
 				24D55DFE19D80B09005E2016 /* DCTMessageBar.m */,
 				24D55DFF19D80B09005E2016 /* DCTMessageBar.xib */,
+				24D55E1219D80D8C005E2016 /* DCTMessageBarDelegate.h */,
 				24D55E0019D80B09005E2016 /* DCTMessageBarTextView.h */,
 				24D55E0119D80B09005E2016 /* DCTMessageBarTextView.m */,
 				24D55DE119D80AB3005E2016 /* Info.plist */,
@@ -175,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24D55E0219D80B09005E2016 /* DCTMessageBar.h in Headers */,
+				24D55E1319D80F5D005E2016 /* DCTMessageBarDelegate.h in Headers */,
 				24D55E0519D80B09005E2016 /* DCTMessageBarTextView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
