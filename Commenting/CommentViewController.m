@@ -7,18 +7,18 @@
 //
 
 #import "CommentViewController.h"
-#import "CommentBar.h"
+#import "DCTMessageBar.h"
 
 @interface CommentViewController () <UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic) CommentBar *commentBar;
+@property (nonatomic) DCTMessageBar *commentBar;
 @end
 
 @implementation CommentViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    self.commentBar = [CommentBar new];
+    self.commentBar = [DCTMessageBar new];
 	self.commentBar.placeholder = @"Add comment";
 }
 

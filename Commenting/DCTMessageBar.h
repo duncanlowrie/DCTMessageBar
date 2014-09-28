@@ -8,7 +8,7 @@
 
 @import UIKit;
 
-@interface CommentBar : UIView
+@interface DCTMessageBar : UIView
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *placeholder;
 @property (nonatomic) CGFloat maximumHeight;

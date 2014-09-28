@@ -6,19 +6,18 @@
 //  Copyright (c) 2014 Daniel Tull. All rights reserved.
 //
 
-#import "CommentBar.h"
+#import "DCTMessageBar.h"
 #import "IntrinsicTextView.h"
 
-@interface CommentBar () <UITextViewDelegate>
+@interface DCTMessageBar () <UITextViewDelegate>
 @property (nonatomic) IBOutlet UITextView *placeholderTextView;
 @property (nonatomic) IBOutlet IntrinsicTextView *textView;
 @property (nonatomic) IBOutlet UIButton *sendButton;
 @property (nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *marginConstraints;
 @property (nonatomic) IBOutlet UIView *sizingView;
-
 @end
 
-@implementation CommentBar
+@implementation DCTMessageBar
 
 - (instancetype)init {
 	Class class = [self class];
