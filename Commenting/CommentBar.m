@@ -21,10 +21,13 @@
 @implementation CommentBar
 
 - (instancetype)init {
-	UINib *nib = [UINib nibWithNibName:NSStringFromClass([self class]) bundle:[NSBundle bundleForClass:[self class]]];
+	Class class = [self class];
+	NSString *name = NSStringFromClass(class);
+	NSBundle *bundle = [NSBundle bundleForClass:class];
+	UINib *nib = [UINib nibWithNibName:name bundle:bundle];
 	NSArray *objects = [nib instantiateWithOwner:nil options:nil];
 	for (id object in objects) {
-		if ([object isKindOfClass:[self class]]) {
+		if ([object isKindOfClass:class]) {
 			return object;
 		}
 	}
@@ -56,23 +59,18 @@
 #pragma mark - CommentBar
 
 - (void)updateHeight {
-	for (NSLayoutConstraint *constraint in self.constraints) {
-		// This is the constraint that controls the height!!
-		if ([constraint.identifier isEqualToString:@"_UIKBAutolayoutHeightConstraint"]) {
 
-			[self.textView invalidateIntrinsicContentSize];
-			CGSize currentSize = self.frame.size;
-			CGSize targetSize = CGSizeMake(currentSize.width, 0);
-			CGSize size = [self.sizingView systemLayoutSizeFittingSize:targetSize];
+	[self.textView invalidateIntrinsicContentSize];
+	CGSize currentSize = self.frame.size;
+	CGSize targetSize = CGSizeMake(currentSize.width, 0);
+	CGSize size = [self.sizingView systemLayoutSizeFittingSize:targetSize];
 
-			CGFloat height = size.height;
-			if (self.maximumHeight < height && self.maximumHeight > 0.0f) {
-				height = self.maximumHeight;
-			}
-
-			constraint.constant = height;
-		}
+	CGFloat height = size.height;
+	if (self.maximumHeight < height && self.maximumHeight > 0.0f) {
+		height = self.maximumHeight;
 	}
+
+	self.heightConstraint.constant = height;
 }
 
 - (void)updatePlaceholderAlpha {
@@ -80,6 +78,16 @@
 	CGFloat alpha = hidden ? 0.0f : 1.0f;
 	self.placeholderTextView.alpha = alpha;
 	self.sendButton.enabled = hidden;
+}
+
+- (NSLayoutConstraint *)heightConstraint {
+	for (NSLayoutConstraint *constraint in self.constraints) {
+		// This is the constraint that controls the height!!
+		if ([constraint.identifier isEqualToString:@"_UIKBAutolayoutHeightConstraint"]) {
+			return constraint;
+		}
+	}
+	return nil;
 }
 
 - (void)setTextView:(IntrinsicTextView *)textView {
