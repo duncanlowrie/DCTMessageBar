@@ -7,7 +7,7 @@
 //
 
 #import "CommentViewController.h"
-#import "DCTMessageBar.h"
+@import DCTMessageBar;
 
 @interface CommentViewController () <UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;

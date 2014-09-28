@@ -12,6 +12,8 @@
 	<dict>
 		<key>8135D7925B4DEBCEDBD55E7A8465231F02F8C3A1</key>
 		<string>github.com:danielctull-tests/Commenting.git</string>
+		<key>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</key>
+		<string>git://github.com/danielctull/Xcode-Configurations.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>DCTMessageBar.xcodeproj</string>
@@ -19,6 +21,8 @@
 	<dict>
 		<key>8135D7925B4DEBCEDBD55E7A8465231F02F8C3A1</key>
 		<string>../..</string>
+		<key>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</key>
+		<string>../..Configurations/</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:danielctull-tests/Commenting.git</string>
@@ -35,6 +39,14 @@
 			<string>8135D7925B4DEBCEDBD55E7A8465231F02F8C3A1</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Commenting</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Configurations</string>
 		</dict>
 	</array>
 </dict>

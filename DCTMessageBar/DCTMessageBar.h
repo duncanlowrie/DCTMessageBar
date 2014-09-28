@@ -8,6 +8,10 @@
 
 @import UIKit;
 
+//! Project version number and string for DCTMessageBar.
+FOUNDATION_EXPORT double DCTMessageBarVersionNumber;
+FOUNDATION_EXPORT const unsigned char DCTMessageBarVersionString[];
+
 @interface DCTMessageBar : UIView
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *placeholder;
