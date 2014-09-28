@@ -81,12 +81,24 @@
 }
 
 - (NSLayoutConstraint *)heightConstraint {
+
 	for (NSLayoutConstraint *constraint in self.constraints) {
-		// This is the constraint that controls the height!!
-		if ([constraint.identifier isEqualToString:@"_UIKBAutolayoutHeightConstraint"]) {
+
+		if (constraint.firstAttribute == NSLayoutAttributeHeight &&
+			constraint.secondAttribute == NSLayoutAttributeNotAnAttribute &&
+			[constraint.firstItem isEqual:self] &&
+			constraint.secondItem == nil) {
+			return constraint;
+		}
+
+		if (constraint.secondAttribute == NSLayoutAttributeHeight &&
+			constraint.firstAttribute == NSLayoutAttributeNotAnAttribute &&
+			[constraint.secondItem isEqual:self] &&
+			constraint.firstItem == nil) {
 			return constraint;
 		}
 	}
+
 	return nil;
 }
 
