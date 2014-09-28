@@ -10,41 +10,61 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqD-XN-CaY" userLabel="Send">
-                    <rect key="frame" x="551" y="18" width="39" height="32"/>
-                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                    <state key="normal" title="Send">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LaZ-jW-Y4A" customClass="IntrinsicTextView">
-                    <rect key="frame" x="10" y="10" width="531" height="40"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                    <connections>
-                        <outlet property="delegate" destination="BBo-dC-yi3" id="QBS-4x-6xZ"/>
-                    </connections>
-                </textView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDa-G4-Lqt">
+                    <rect key="frame" x="0.0" y="1" width="600" height="59"/>
+                    <items/>
+                </toolbar>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6W-aj-mye">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                    <subviews>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LaZ-jW-Y4A" customClass="IntrinsicTextView">
+                            <rect key="frame" x="10" y="10" width="531" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <connections>
+                                <outlet property="delegate" destination="BBo-dC-yi3" id="QBS-4x-6xZ"/>
+                            </connections>
+                        </textView>
+                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vqD-XN-CaY" userLabel="Send">
+                            <rect key="frame" x="551" y="10" width="39" height="40"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <state key="normal" title="Send">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vqD-XN-CaY" firstAttribute="top" secondItem="O6W-aj-mye" secondAttribute="top" constant="10" id="2TC-RR-kD5"/>
+                        <constraint firstItem="vqD-XN-CaY" firstAttribute="leading" secondItem="LaZ-jW-Y4A" secondAttribute="trailing" constant="10" id="57w-c2-gWF"/>
+                        <constraint firstAttribute="bottom" secondItem="vqD-XN-CaY" secondAttribute="bottom" constant="10" id="88h-8e-Nf9"/>
+                        <constraint firstAttribute="trailing" secondItem="vqD-XN-CaY" secondAttribute="trailing" constant="10" id="Ud7-p4-aHc"/>
+                        <constraint firstItem="LaZ-jW-Y4A" firstAttribute="top" secondItem="O6W-aj-mye" secondAttribute="top" constant="10" id="e4g-hE-12Z"/>
+                        <constraint firstItem="LaZ-jW-Y4A" firstAttribute="leading" secondItem="O6W-aj-mye" secondAttribute="leading" constant="10" id="mBf-fN-Kfh"/>
+                        <constraint firstAttribute="bottom" secondItem="LaZ-jW-Y4A" secondAttribute="bottom" constant="10" id="w8M-63-sWh"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.96078431369999995" green="0.65098039220000004" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="vqD-XN-CaY" secondAttribute="bottom" constant="10" id="1u8-hY-U5b"/>
-                <constraint firstAttribute="bottom" secondItem="LaZ-jW-Y4A" secondAttribute="bottom" constant="10" id="Pjl-uf-S3m"/>
-                <constraint firstItem="LaZ-jW-Y4A" firstAttribute="top" secondItem="BBo-dC-yi3" secondAttribute="top" constant="10" id="WEe-tH-yRl"/>
-                <constraint firstItem="LaZ-jW-Y4A" firstAttribute="leading" secondItem="BBo-dC-yi3" secondAttribute="leading" constant="10" id="g3o-as-XIQ"/>
-                <constraint firstAttribute="trailing" secondItem="vqD-XN-CaY" secondAttribute="trailing" constant="10" id="gM3-NA-ZhN"/>
-                <constraint firstItem="vqD-XN-CaY" firstAttribute="leading" secondItem="LaZ-jW-Y4A" secondAttribute="trailing" constant="10" id="vOz-da-jdr"/>
+                <constraint firstAttribute="trailing" secondItem="fDa-G4-Lqt" secondAttribute="trailing" id="12Z-Ii-063"/>
+                <constraint firstItem="O6W-aj-mye" firstAttribute="leading" secondItem="BBo-dC-yi3" secondAttribute="leading" id="1Tw-2l-Arx"/>
+                <constraint firstItem="O6W-aj-mye" firstAttribute="top" secondItem="BBo-dC-yi3" secondAttribute="top" id="Bqf-77-xO3"/>
+                <constraint firstAttribute="bottom" secondItem="O6W-aj-mye" secondAttribute="bottom" id="Tb4-fT-ewB"/>
+                <constraint firstAttribute="trailing" secondItem="O6W-aj-mye" secondAttribute="trailing" id="Unl-FO-bl8"/>
+                <constraint firstItem="fDa-G4-Lqt" firstAttribute="top" secondItem="BBo-dC-yi3" secondAttribute="top" constant="1" id="Vmn-gD-JL6"/>
+                <constraint firstAttribute="bottom" secondItem="fDa-G4-Lqt" secondAttribute="bottom" id="o1G-6h-TIs"/>
+                <constraint firstItem="fDa-G4-Lqt" firstAttribute="leading" secondItem="BBo-dC-yi3" secondAttribute="leading" id="qdL-qI-zmJ"/>
             </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="sendButton" destination="vqD-XN-CaY" id="vYw-UG-uL6"/>
+                <outlet property="sizingView" destination="O6W-aj-mye" id="ZvR-tS-HON"/>
                 <outlet property="textView" destination="LaZ-jW-Y4A" id="xiA-2b-a2Y"/>
-                <outletCollection property="marginConstraints" destination="g3o-as-XIQ" id="6gP-c8-Fne"/>
-                <outletCollection property="marginConstraints" destination="vOz-da-jdr" id="R6J-b4-HMw"/>
-                <outletCollection property="marginConstraints" destination="gM3-NA-ZhN" id="lij-PL-AsJ"/>
             </connections>
-            <point key="canvasLocation" x="139" y="155.5"/>
+            <point key="canvasLocation" x="26" y="131"/>
         </view>
     </objects>
 </document>

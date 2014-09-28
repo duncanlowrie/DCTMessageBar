@@ -28,8 +28,6 @@
 		size = [self sizeThatFits:max];
 	}
 
-	NSLog(@"%@ %@", text, @(size.height));
-
 	return size;
 }
 
