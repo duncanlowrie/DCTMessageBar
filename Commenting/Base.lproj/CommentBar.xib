@@ -72,6 +72,9 @@
                 <outlet property="sendButton" destination="vqD-XN-CaY" id="vYw-UG-uL6"/>
                 <outlet property="sizingView" destination="O6W-aj-mye" id="ZvR-tS-HON"/>
                 <outlet property="textView" destination="LaZ-jW-Y4A" id="xiA-2b-a2Y"/>
+                <outletCollection property="marginConstraints" destination="mBf-fN-Kfh" id="huJ-AT-swG"/>
+                <outletCollection property="marginConstraints" destination="57w-c2-gWF" id="TL2-Zv-y25"/>
+                <outletCollection property="marginConstraints" destination="Ud7-p4-aHc" id="ZYa-RI-2op"/>
             </connections>
             <point key="canvasLocation" x="26" y="131"/>
         </view>
