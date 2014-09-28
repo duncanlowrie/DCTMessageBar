@@ -7,10 +7,13 @@
 //
 
 #import "CommentBar.h"
+#import "IntrinsicTextView.h"
 
-@interface CommentBar ()
+@interface CommentBar () <UITextViewDelegate>
 
-@property (nonatomic, weak) IBOutlet UITextField *textField;
+@property (nonatomic) IBOutlet IntrinsicTextView *textView;
+@property (nonatomic) IBOutlet UIButton *sendButton;
+@property (nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *marginConstraints;
 
 @end
 
@@ -31,12 +34,27 @@
     return nil;
 }
 
-- (IBAction)textFieldDidChange:(UITextField*)textField {
-    CGFloat newHeight = 60 + (self.textField.text.length * 20);
-    
+- (void)layoutSubviews {
+	[super layoutSubviews];
+	CGSize currentSize = self.frame.size;
+	CGFloat sendWidth = [self.sendButton intrinsicContentSize].width;
+	CGFloat totalMargins = [[self.marginConstraints valueForKeyPath:@"@sum.constant"] floatValue];
+	self.textView.preferredMaxLayoutWidth = currentSize.width - totalMargins - sendWidth;
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+
     for (NSLayoutConstraint *constraint in self.constraints) {
         if ([constraint.identifier isEqualToString:@"_UIKBAutolayoutHeightConstraint"]) { // This is the constraint that controls the height!!
-            constraint.constant = newHeight;
+
+			[self removeConstraint:constraint];
+			CGSize currentSize = self.frame.size;
+			CGSize targetSize = CGSizeMake(currentSize.width, 0);
+			CGSize size = [self systemLayoutSizeFittingSize:targetSize];
+			[self addConstraint:constraint];
+
+			NSLog(@"%@ %@", constraint, @(size.height));
+            constraint.constant = size.height;
         }
     }
 }

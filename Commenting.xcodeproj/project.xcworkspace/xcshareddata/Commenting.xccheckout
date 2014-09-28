@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3A1A3B10-0055-46BA-A7F2-6E371758D85F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Commenting</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8135D7925B4DEBCEDBD55E7A8465231F02F8C3A1</key>
+		<string>github.com:danielctull-tests/Commenting.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Commenting.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8135D7925B4DEBCEDBD55E7A8465231F02F8C3A1</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:danielctull-tests/Commenting.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8135D7925B4DEBCEDBD55E7A8465231F02F8C3A1</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8135D7925B4DEBCEDBD55E7A8465231F02F8C3A1</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Commenting</string>
+		</dict>
+	</array>
+</dict>
+</plist>
