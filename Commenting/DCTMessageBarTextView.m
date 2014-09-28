@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Daniel Tull. All rights reserved.
 //
 
-#import "IntrinsicTextView.h"
+#import "DCTMessageBarTextView.h"
 
-@implementation IntrinsicTextView
+@implementation DCTMessageBarTextView
 
 - (void)setPreferredMaxLayoutWidth:(CGFloat)preferredMaxLayoutWidth {
 	_preferredMaxLayoutWidth = preferredMaxLayoutWidth;

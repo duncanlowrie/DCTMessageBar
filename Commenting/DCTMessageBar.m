@@ -7,11 +7,11 @@
 //
 
 #import "DCTMessageBar.h"
-#import "IntrinsicTextView.h"
+#import "DCTMessageBarTextView.h"
 
 @interface DCTMessageBar () <UITextViewDelegate>
 @property (nonatomic) IBOutlet UITextView *placeholderTextView;
-@property (nonatomic) IBOutlet IntrinsicTextView *textView;
+@property (nonatomic) IBOutlet DCTMessageBarTextView *textView;
 @property (nonatomic) IBOutlet UIButton *sendButton;
 @property (nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *marginConstraints;
 @property (nonatomic) IBOutlet UIView *sizingView;
@@ -101,7 +101,7 @@
 	return nil;
 }
 
-- (void)setTextView:(IntrinsicTextView *)textView {
+- (void)setTextView:(DCTMessageBarTextView *)textView {
 	_textView = textView;
 	_textView.layer.cornerRadius = 6.0f;
 	_textView.layer.borderColor = [[UIColor colorWithWhite:0.8f alpha:1.0f] CGColor];

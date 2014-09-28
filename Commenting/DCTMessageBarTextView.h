@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface IntrinsicTextView : UITextView
+@interface DCTMessageBarTextView : UITextView
 @property (nonatomic) CGFloat preferredMaxLayoutWidth;
 @end

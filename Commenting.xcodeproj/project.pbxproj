@@ -13,7 +13,7 @@
 		24C949ED19C4289200BF16D8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24C949EC19C4289200BF16D8 /* Images.xcassets */; };
 		24C949F019C4289200BF16D8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C949EE19C4289200BF16D8 /* LaunchScreen.xib */; };
 		24C94A0719C42A6A00BF16D8 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0619C42A6A00BF16D8 /* CommentViewController.m */; };
-		24C94A0D19C42C0100BF16D8 /* IntrinsicTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0C19C42C0100BF16D8 /* IntrinsicTextView.m */; };
+		24C94A0D19C42C0100BF16D8 /* DCTMessageBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0C19C42C0100BF16D8 /* DCTMessageBarTextView.m */; };
 		24C94A1019C42C4900BF16D8 /* DCTMessageBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C94A0F19C42C4900BF16D8 /* DCTMessageBar.m */; };
 		B571FAAB19D74E530043D8B7 /* DCTMessageBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = B571FAA919D74E530043D8B7 /* DCTMessageBar.xib */; };
 /* End PBXBuildFile section */
@@ -29,8 +29,8 @@
 		24C949EF19C4289200BF16D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		24C94A0519C42A6A00BF16D8 /* CommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
 		24C94A0619C42A6A00BF16D8 /* CommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
-		24C94A0B19C42C0100BF16D8 /* IntrinsicTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntrinsicTextView.h; sourceTree = "<group>"; };
-		24C94A0C19C42C0100BF16D8 /* IntrinsicTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntrinsicTextView.m; sourceTree = "<group>"; };
+		24C94A0B19C42C0100BF16D8 /* DCTMessageBarTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTMessageBarTextView.h; sourceTree = "<group>"; };
+		24C94A0C19C42C0100BF16D8 /* DCTMessageBarTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTMessageBarTextView.m; sourceTree = "<group>"; };
 		24C94A0E19C42C4900BF16D8 /* DCTMessageBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTMessageBar.h; sourceTree = "<group>"; };
 		24C94A0F19C42C4900BF16D8 /* DCTMessageBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTMessageBar.m; sourceTree = "<group>"; };
 		B571FAAA19D74E530043D8B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/DCTMessageBar.xib; sourceTree = "<group>"; };
@@ -70,8 +70,8 @@
 				24C949E119C4289200BF16D8 /* AppDelegate.m */,
 				24C94A0519C42A6A00BF16D8 /* CommentViewController.h */,
 				24C94A0619C42A6A00BF16D8 /* CommentViewController.m */,
-				24C94A0B19C42C0100BF16D8 /* IntrinsicTextView.h */,
-				24C94A0C19C42C0100BF16D8 /* IntrinsicTextView.m */,
+				24C94A0B19C42C0100BF16D8 /* DCTMessageBarTextView.h */,
+				24C94A0C19C42C0100BF16D8 /* DCTMessageBarTextView.m */,
 				24C94A0E19C42C4900BF16D8 /* DCTMessageBar.h */,
 				24C94A0F19C42C4900BF16D8 /* DCTMessageBar.m */,
 				B571FAA919D74E530043D8B7 /* DCTMessageBar.xib */,
@@ -155,7 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24C94A0D19C42C0100BF16D8 /* IntrinsicTextView.m in Sources */,
+				24C94A0D19C42C0100BF16D8 /* DCTMessageBarTextView.m in Sources */,
 				24C94A0719C42A6A00BF16D8 /* CommentViewController.m in Sources */,
 				24C949E219C4289200BF16D8 /* AppDelegate.m in Sources */,
 				24C949DF19C4289200BF16D8 /* main.m in Sources */,
