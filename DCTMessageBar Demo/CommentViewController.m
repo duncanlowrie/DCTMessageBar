@@ -9,23 +9,24 @@
 #import "CommentViewController.h"
 @import DCTMessageBar;
 
-@interface CommentViewController () <UITableViewDataSource, DCTMessageBarDelegate>
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
-@property (nonatomic) DCTMessageBar *commentBar;
+@interface CommentViewController () <DCTMessageBarDelegate>
+@property (nonatomic) DCTMessageBar *messageBar;
+@property (nonatomic) NSMutableArray *messages;
 @end
 
 @implementation CommentViewController
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    self.commentBar = [DCTMessageBar new];
-	self.commentBar.placeholder = @"Add comment";
-	self.commentBar.delegate = self;
+	self.messages = [NSMutableArray new];
+    self.messageBar = [DCTMessageBar new];
+	self.messageBar.placeholder = @"Post message";
+	self.messageBar.delegate = self;
 }
 
 - (void)viewDidLayoutSubviews {
 	[super viewDidLayoutSubviews];
-	self.commentBar.maximumHeight = CGRectGetHeight(self.view.bounds) / 3.0f;
+	self.messageBar.maximumHeight = CGRectGetHeight(self.view.bounds) / 3.0f;
 }
 
 - (BOOL)canBecomeFirstResponder {
@@ -33,24 +34,31 @@
 }
 
 - (UIView *)inputAccessoryView {
-	return self.commentBar;
+	return self.messageBar;
+}
+
+- (void)addMessage:(NSString *)messages {
+	NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.messages.count inSection:0];
+	[self.messages addObject:messages];
+	[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 #pragma mark - DCTMessageBarDelegate
 
 - (void)messageBarSendButtonTapped:(DCTMessageBar *)messageBar {
+	[self addMessage:messageBar.text];
 	messageBar.text = nil;
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return 100;
+	return self.messages.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-	cell.textLabel.text = [NSString stringWithFormat:@"%@.%@", @(indexPath.section), @(indexPath.row)];
+	cell.textLabel.text = self.messages[indexPath.row];
 	return cell;
 }
 

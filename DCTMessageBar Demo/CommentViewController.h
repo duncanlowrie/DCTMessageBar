@@ -8,6 +8,5 @@
 
 @import UIKit;
 
-@interface CommentViewController : UIViewController
-
+@interface CommentViewController : UITableViewController
 @end
