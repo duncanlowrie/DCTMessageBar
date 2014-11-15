@@ -171,13 +171,7 @@
 				24F6C84C1A176FC4005D595D /* DCTMessageBarControllerDelegate.h */,
 				24F6C8501A1774E2005D595D /* UIViewController+DCTMessageBarController.h */,
 				24F6C8511A1774E2005D595D /* UIViewController+DCTMessageBarController.m */,
-				24D55E0019D80B09005E2016 /* DCTMessageBarTextView.h */,
-				24D55E0119D80B09005E2016 /* DCTMessageBarTextView.m */,
-				24F6C8281A16587F005D595D /* DCTMessageBarInputAccessoryView.h */,
-				24F6C8291A16587F005D595D /* DCTMessageBarInputAccessoryView.m */,
-				24F6C84D1A17729C005D595D /* DCTMessageBarInputAccessoryViewDelegate.h */,
-				24F6C8581A178434005D595D /* DCTMessageBarNavigationItem.h */,
-				24F6C8591A178434005D595D /* DCTMessageBarNavigationItem.m */,
+				24F6C85C1A17AA83005D595D /* Private */,
 				24D55DE119D80AB3005E2016 /* Info.plist */,
 			);
 			path = DCTMessageBar;
@@ -198,6 +192,20 @@
 				24D55E1119D80B68005E2016 /* update.sh */,
 			);
 			path = Configurations;
+			sourceTree = "<group>";
+		};
+		24F6C85C1A17AA83005D595D /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				24D55E0019D80B09005E2016 /* DCTMessageBarTextView.h */,
+				24D55E0119D80B09005E2016 /* DCTMessageBarTextView.m */,
+				24F6C8281A16587F005D595D /* DCTMessageBarInputAccessoryView.h */,
+				24F6C8291A16587F005D595D /* DCTMessageBarInputAccessoryView.m */,
+				24F6C84D1A17729C005D595D /* DCTMessageBarInputAccessoryViewDelegate.h */,
+				24F6C8581A178434005D595D /* DCTMessageBarNavigationItem.h */,
+				24F6C8591A178434005D595D /* DCTMessageBarNavigationItem.m */,
+			);
+			name = Private;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
