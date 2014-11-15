@@ -72,10 +72,43 @@
 	[super viewDidLoad];
 
 	UIView *view = self.viewController.view;
-	if (view) {
+	if (!view.superview) {
 		view.frame = self.view.bounds;
 		view.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		[self.view insertSubview:view belowSubview:self.messageBar];
+	}
+
+	if (!self.messageBar) {
+		self.messageBar = [DCTMessageBar new];
+		self.messageBar.delegate = self;
+		self.messageBar.translatesAutoresizingMaskIntoConstraints = NO;
+		[self.view addSubview:self.messageBar];
+
+		NSLayoutConstraint *leftMarginConstraint = [NSLayoutConstraint constraintWithItem:self.view
+																				attribute:NSLayoutAttributeLeading
+																				relatedBy:NSLayoutRelationEqual
+																				   toItem:self.messageBar
+																				attribute:NSLayoutAttributeLeading
+																			   multiplier:1.0f
+																				 constant:0.0f];
+
+		NSLayoutConstraint *rightMarginConstraint = [NSLayoutConstraint constraintWithItem:self.view
+																				 attribute:NSLayoutAttributeTrailing
+																				 relatedBy:NSLayoutRelationEqual
+																					toItem:self.messageBar
+																				 attribute:NSLayoutAttributeTrailing
+																				multiplier:1.0f
+																				  constant:0.0f];
+
+		self.bottomMarginConstraint = [NSLayoutConstraint constraintWithItem:self.view
+																   attribute:NSLayoutAttributeBottom
+																   relatedBy:NSLayoutRelationEqual
+																	  toItem:self.messageBar
+																   attribute:NSLayoutAttributeBottom
+																  multiplier:1.0f
+																	constant:0.0f];
+
+		[self.view addConstraints:@[leftMarginConstraint, rightMarginConstraint, self.bottomMarginConstraint]];
 	}
 }
 

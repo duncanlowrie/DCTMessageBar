@@ -7,10 +7,10 @@
 //
 
 @import UIKit;
-#import <DCTMessageBar/DCTMessageBarDelegate.h>
-#import <DCTMessageBar/DCTMessageBarController.h>
-#import <DCTMessageBar/DCTMessageBarControllerDelegate.h>
-#import <DCTMessageBar/UIViewController+DCTMessageBarController.h>
+#import "DCTMessageBarDelegate.h"
+#import "DCTMessageBarController.h"
+#import "DCTMessageBarControllerDelegate.h"
+#import "UIViewController+DCTMessageBarController.h"
 
 extern const BOOL DCTMessageBarDebug;
 
