@@ -24,19 +24,6 @@
 	self.messageBar.delegate = self;
 }
 
-- (void)viewDidLayoutSubviews {
-	[super viewDidLayoutSubviews];
-	self.messageBar.maximumHeight = CGRectGetHeight(self.view.bounds) / 3.0f;
-}
-
-- (BOOL)canBecomeFirstResponder {
-	return YES;
-}
-
-- (UIView *)inputAccessoryView {
-	return self.messageBar;
-}
-
 - (void)addMessage:(NSString *)messages {
 	NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.messages.count inSection:0];
 	[self.messages addObject:messages];

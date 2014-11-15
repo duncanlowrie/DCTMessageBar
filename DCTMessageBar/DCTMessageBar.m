@@ -8,18 +8,42 @@
 
 #import "DCTMessageBar.h"
 #import "DCTMessageBarTextView.h"
+#import "DCTMessageBarInputAccessoryView.h"
 
-@interface DCTMessageBar () <UITextViewDelegate>
+@interface DCTMessageBar () <UITextViewDelegate, DCTMessageBarInputAccessoryViewDelegate>
 @property (nonatomic) IBOutlet UITextView *placeholderTextView;
 @property (nonatomic) IBOutlet DCTMessageBarTextView *textView;
 @property (nonatomic) IBOutlet UIButton *sendButton;
 @property (nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *marginConstraints;
 @property (nonatomic) IBOutlet UIView *sizingView;
+@property (nonatomic) DCTMessageBarInputAccessoryView *trackingView;
+@property (nonatomic) BOOL disableTracking;
+@property (nonatomic) BOOL tracking;
 @end
 
 @implementation DCTMessageBar
 
 #pragma mark - NSObject
+
+- (void)dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
+	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidShowNotification object:nil];
+}
+
+- (id)initWithCoder:(NSCoder *)coder {
+	self = [super initWithCoder:coder];
+	if (!self) return nil;
+
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHideNotification:) name:UIKeyboardWillHideNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShowNotification:) name:UIKeyboardWillShowNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidHideNotification:) name:UIKeyboardDidHideNotification object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShowNotification:) name:UIKeyboardDidShowNotification object:nil];
+
+	return self;
+
+}
 
 - (instancetype)init {
 	Class class = [self class];
@@ -55,7 +79,61 @@
 	CGFloat sendWidth = [self.sendButton intrinsicContentSize].width;
 	CGFloat totalMargins = [[self.marginConstraints valueForKeyPath:@"@sum.constant"] floatValue];
 	self.textView.preferredMaxLayoutWidth = currentSize.width - totalMargins - sendWidth;
+	[self updateHeight];
 }
+
+#pragma mark - UIKeyboard
+
+- (void)keyboardWillHideNotification:(NSNotification *)notification {
+	NSLog(@"%@", NSStringFromSelector(_cmd));
+
+	CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+	[self setKeyboardFrame:keyboardEndFrame];
+
+	UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
+	NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
+
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationDuration:animationDuration];
+	[UIView setAnimationCurve:animationCurve];
+	[self layoutIfNeeded];
+	[UIView commitAnimations];
+}
+
+- (void)keyboardWillShowNotification:(NSNotification *)notification {
+	NSLog(@"%@", NSStringFromSelector(_cmd));
+
+	CGRect keyboardEndFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+	[self setKeyboardFrame:keyboardEndFrame];
+
+	UIViewAnimationCurve animationCurve = [[[notification userInfo] objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];
+	NSTimeInterval animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] integerValue];
+
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationDuration:animationDuration];
+	[UIView setAnimationCurve:animationCurve];
+	[self layoutIfNeeded];
+	[UIView commitAnimations];
+}
+
+- (void)keyboardDidHideNotification:(NSNotification *)notification {
+	NSLog(@"%@", NSStringFromSelector(_cmd));
+
+	if (!self.textView.isFirstResponder) {
+		self.textView.inputAccessoryView = nil;
+		[self.textView reloadInputViews];
+	}
+}
+
+- (void)keyboardDidShowNotification:(NSNotification *)notification {
+	NSLog(@"%@", NSStringFromSelector(_cmd));
+
+	if (self.textView.isFirstResponder) {
+		self.textView.inputAccessoryView = self.trackingView;
+		[self.textView reloadInputViews];
+	}
+}
+
 
 #pragma mark - CommentBar
 
@@ -71,7 +149,7 @@
 		height = self.maximumHeight;
 	}
 
-	self.heightConstraint.constant = height;
+	self.trackingView.height = height;
 }
 
 - (void)updateViews {
@@ -81,26 +159,17 @@
 	self.sendButton.enabled = !empty;
 }
 
-- (NSLayoutConstraint *)heightConstraint {
+- (DCTMessageBarInputAccessoryView *)trackingView {
 
-	for (NSLayoutConstraint *constraint in self.constraints) {
-
-		if (constraint.firstAttribute == NSLayoutAttributeHeight &&
-			constraint.secondAttribute == NSLayoutAttributeNotAnAttribute &&
-			[constraint.firstItem isEqual:self] &&
-			constraint.secondItem == nil) {
-			return constraint;
-		}
-
-		if (constraint.secondAttribute == NSLayoutAttributeHeight &&
-			constraint.firstAttribute == NSLayoutAttributeNotAnAttribute &&
-			[constraint.secondItem isEqual:self] &&
-			constraint.firstItem == nil) {
-			return constraint;
-		}
+	if (!_trackingView) {
+		DCTMessageBarInputAccessoryView *inputAccessoryView = [[DCTMessageBarInputAccessoryView alloc] initWithFrame:self.bounds];
+		inputAccessoryView.delegate = self;
+		inputAccessoryView.backgroundColor = [UIColor colorWithRed:251.0f/255.0f green:128.0f/255.0f blue:36.0f/255.0f alpha:0.3f];
+		inputAccessoryView.userInteractionEnabled = NO;
+		_trackingView = inputAccessoryView;
 	}
 
-	return nil;
+	return _trackingView;
 }
 
 - (void)setTextView:(DCTMessageBarTextView *)textView {
@@ -127,12 +196,29 @@
 }
 
 - (void)setMaximumHeight:(CGFloat)maximumHeight {
+
+	if (_maximumHeight == maximumHeight) return;
+
 	_maximumHeight = maximumHeight;
 	[self updateHeight];
 }
 
 - (IBAction)send:(id)sender {
 	[self.delegate messageBarSendButtonTapped:self];
+}
+
+- (void)setKeyboardFrame:(CGRect)keyboardFrame {
+	CGFloat value = CGRectGetHeight(self.superview.bounds) - CGRectGetMinY(keyboardFrame) - CGRectGetHeight(self.textView.inputAccessoryView.bounds);
+
+	if (value < 0) value = 0;
+	self.bottomMarginConstraint.constant = value;
+}
+
+#pragma mark - DCTMessageBarInputAccessoryViewDelegate
+
+- (void)inputAccessoryView:(DCTMessageBarInputAccessoryView *)inputAccessoryView keyboardDidChangeFrame:(CGRect)frame {
+	self.tracking = YES;
+	[self setKeyboardFrame:frame];
 }
 
 #pragma mark - UITextViewDelegate

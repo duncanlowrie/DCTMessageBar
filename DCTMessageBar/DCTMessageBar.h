@@ -20,4 +20,7 @@ FOUNDATION_EXPORT const unsigned char DCTMessageBarVersionString[];
 @property (nonatomic) CGFloat maximumHeight;
 @property (nonatomic, weak) id<DCTMessageBarDelegate> delegate;
 
+//@property (nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+@property (nonatomic) IBOutlet NSLayoutConstraint *bottomMarginConstraint;
+
 @end

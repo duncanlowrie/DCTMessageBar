@@ -41,4 +41,14 @@
 	return size;
 }
 
+- (void)setInputAccessoryView:(UIView *)inputAccessoryView {
+	NSLog(@"%@", NSStringFromSelector(_cmd));
+	[super setInputAccessoryView:inputAccessoryView];
+}
+
+- (BOOL)becomeFirstResponder {
+	NSLog(@"%@", NSStringFromSelector(_cmd));
+	return [super becomeFirstResponder];
+}
+
 @end
