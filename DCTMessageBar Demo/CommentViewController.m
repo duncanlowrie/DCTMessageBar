@@ -9,32 +9,33 @@
 #import "CommentViewController.h"
 @import DCTMessageBar;
 
-@interface CommentViewController () <DCTMessageBarDelegate>
-@property (nonatomic) DCTMessageBar *messageBar;
+@interface CommentViewController () <DCTMessageBarControllerDelegate>
 @property (nonatomic) NSMutableArray *messages;
 @end
 
 @implementation CommentViewController
 
-- (void)viewDidLoad {
-	[super viewDidLoad];
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+
 	self.messages = [NSMutableArray new];
-    self.messageBar = [DCTMessageBar new];
-	self.messageBar.placeholder = @"Post message";
-	self.messageBar.delegate = self;
+	self.dct_messageBarController.delegate = self;
+	self.dct_messageBarController.messageBar.placeholder = @"Post message";
 }
+
 
 - (void)addMessage:(NSString *)messages {
 	NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.messages.count inSection:0];
 	[self.messages addObject:messages];
 	[self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+	[self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
-#pragma mark - DCTMessageBarDelegate
+#pragma mark - DCTMessageBarControllerDelegate
 
-- (void)messageBarSendButtonTapped:(DCTMessageBar *)messageBar {
-	[self addMessage:messageBar.text];
-	messageBar.text = nil;
+- (void)messageBarControllerSendButtonTapped:(DCTMessageBarController *)messageBarController {
+	[self addMessage:messageBarController.messageBar.text];
+	messageBarController.messageBar.text = nil;
 }
 
 #pragma mark - UITableViewDataSource

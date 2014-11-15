@@ -12,6 +12,7 @@
 const BOOL DCTMessageBarDebug = YES;
 
 @interface DCTMessageBar () <UITextViewDelegate>
+@property (nonatomic) IBOutlet DCTMessageBarTextView *mbTextView;
 @property (nonatomic) IBOutlet UITextView *placeholderTextView;
 @property (nonatomic) IBOutlet UIButton *sendButton;
 @property (nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *marginConstraints;
@@ -66,10 +67,14 @@ const BOOL DCTMessageBarDebug = YES;
 	CGSize currentSize = self.frame.size;
 	CGFloat sendWidth = [self.sendButton intrinsicContentSize].width;
 	CGFloat totalMargins = [[self.marginConstraints valueForKeyPath:@"@sum.constant"] floatValue];
-	self.textView.preferredMaxLayoutWidth = currentSize.width - totalMargins - sendWidth;
+	self.mbTextView.preferredMaxLayoutWidth = currentSize.width - totalMargins - sendWidth;
 }
 
 #pragma mark - CommentBar
+
+- (UITextView *)textView {
+	return self.mbTextView;
+}
 
 - (void)updateViews {
 	BOOL empty = self.textView.text.length == 0;
@@ -78,10 +83,10 @@ const BOOL DCTMessageBarDebug = YES;
 	self.sendButton.enabled = !empty;
 }
 
-- (void)setTextView:(DCTMessageBarTextView *)textView {
-	_textView = textView;
-	_textView.layer.cornerRadius = 6.0f;
-	_textView.layer.borderColor = [[UIColor colorWithWhite:0.8f alpha:1.0f] CGColor];
+- (void)setMbTextView:(DCTMessageBarTextView *)mbTextView {
+	_mbTextView = mbTextView;
+	_mbTextView.layer.cornerRadius = 6.0f;
+	_mbTextView.layer.borderColor = [[UIColor colorWithWhite:0.8f alpha:1.0f] CGColor];
 }
 
 - (void)setText:(NSString *)text {

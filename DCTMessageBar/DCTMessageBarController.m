@@ -139,12 +139,18 @@
 #pragma mark - DCTMessageBarDelegate
 
 - (void)messageBar:(DCTMessageBar *)messageBar didChangeText:(NSString *)text {
+
 	[self updateHeight];
-	[self.delegate messageBarController:self didChangeText:text];
+
+	if ([self.delegate respondsToSelector:@selector(messageBarController:didChangeText:)]) {
+		[self.delegate messageBarController:self didChangeText:text];
+	}
 }
 
 - (void)messageBarSendButtonTapped:(DCTMessageBar *)messageBar {
-	[self.delegate messageBarControllerSendButtonTapped:self];
+	if ([self.delegate respondsToSelector:@selector(messageBarControllerSendButtonTapped:)]) {
+		[self.delegate messageBarControllerSendButtonTapped:self];
+	}
 }
 
 #pragma mark - DCTMessageBarInputAccessoryViewDelegate

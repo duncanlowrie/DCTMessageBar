@@ -10,7 +10,7 @@
 #import <DCTMessageBar/DCTMessageBarDelegate.h>
 #import <DCTMessageBar/DCTMessageBarController.h>
 #import <DCTMessageBar/DCTMessageBarControllerDelegate.h>
-#import <DCTMessageBar/DCTMessageBarTextView.h>
+#import <DCTMessageBar/UIViewController+DCTMessageBarController.h>
 
 extern const BOOL DCTMessageBarDebug;
 
@@ -25,7 +25,7 @@ FOUNDATION_EXPORT const unsigned char DCTMessageBarVersionString[];
 
 @property (nonatomic, weak) IBOutlet id<DCTMessageBarDelegate> delegate;
 
-@property (nonatomic) IBOutlet DCTMessageBarTextView *textView;
+@property (nonatomic, readonly) UITextView *textView;
 @property (nonatomic) IBOutlet NSLayoutConstraint *bottomMarginConstraint;
 
 @end

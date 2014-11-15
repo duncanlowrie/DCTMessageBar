@@ -11,6 +11,7 @@
 
 @protocol DCTMessageBarControllerDelegate <NSObject>
 
+@optional
 - (void)messageBarControllerSendButtonTapped:(DCTMessageBarController *)messageBarController;
 - (void)messageBarController:(DCTMessageBarController *)messageBarController didChangeText:(NSString *)text;
 
