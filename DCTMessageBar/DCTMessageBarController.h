@@ -7,10 +7,15 @@
 //
 
 @import UIKit;
+@class DCTMessageBar;
+@protocol DCTMessageBarControllerDelegate;
 
 @interface DCTMessageBarController : UIViewController
 
 - (instancetype)initWithViewController:(UIViewController *)viewController;
 @property (nonatomic, readonly) UIViewController *viewController;
+
+@property (nonatomic) IBOutlet DCTMessageBar *messageBar;
+@property (nonatomic, weak) id<DCTMessageBarControllerDelegate> delegate;
 
 @end

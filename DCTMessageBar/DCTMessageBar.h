@@ -8,6 +8,11 @@
 
 @import UIKit;
 #import <DCTMessageBar/DCTMessageBarDelegate.h>
+#import <DCTMessageBar/DCTMessageBarController.h>
+#import <DCTMessageBar/DCTMessageBarControllerDelegate.h>
+#import <DCTMessageBar/DCTMessageBarTextView.h>
+
+extern const BOOL DCTMessageBarDebug;
 
 //! Project version number and string for DCTMessageBar.
 FOUNDATION_EXPORT double DCTMessageBarVersionNumber;
@@ -17,10 +22,10 @@ FOUNDATION_EXPORT const unsigned char DCTMessageBarVersionString[];
 
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) NSString *placeholder;
-@property (nonatomic) CGFloat maximumHeight;
-@property (nonatomic, weak) id<DCTMessageBarDelegate> delegate;
 
-//@property (nonatomic) IBOutlet NSLayoutConstraint *heightConstraint;
+@property (nonatomic, weak) IBOutlet id<DCTMessageBarDelegate> delegate;
+
+@property (nonatomic) IBOutlet DCTMessageBarTextView *textView;
 @property (nonatomic) IBOutlet NSLayoutConstraint *bottomMarginConstraint;
 
 @end

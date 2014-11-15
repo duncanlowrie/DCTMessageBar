@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="1083" y="64"/>
         </scene>
-        <!--View Controller-->
+        <!--Message Bar Controller-->
         <scene sceneID="SVm-6v-kBp">
             <objects>
-                <viewController id="9bZ-TA-GaQ" sceneMemberID="viewController">
+                <viewController id="9bZ-TA-GaQ" customClass="DCTMessageBarController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h59-FB-hcY"/>
                         <viewControllerLayoutGuide type="bottom" id="sAm-6s-nW8"/>
@@ -135,6 +135,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="bottomMarginConstraint" destination="ZZ2-wR-rke" id="nor-Dr-tVm"/>
+                                    <outlet property="delegate" destination="9bZ-TA-GaQ" id="gG9-OY-vev"/>
                                     <outlet property="placeholderTextView" destination="wWr-MG-ueH" id="7P4-Qh-8vi"/>
                                     <outlet property="sendButton" destination="5Df-Jd-BVf" id="KlG-UK-KdA"/>
                                     <outlet property="sizingView" destination="b4G-gd-G4b" id="IdC-tF-Jo2"/>
@@ -157,6 +158,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vGB-iL-gtp"/>
+                    <connections>
+                        <outlet property="messageBar" destination="oP9-gO-QWf" id="iwJ-oW-g3f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Emc-s5-kei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

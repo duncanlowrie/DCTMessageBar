@@ -7,6 +7,7 @@
 //
 
 #import "DCTMessageBarInputAccessoryView.h"
+#import "DCTMessageBarInputAccessoryViewDelegate.h"
 
 NSString *const DCTMessageBarInputAccessoryViewKeyboardFrameDidChangeNotification = @"DCTMessageBarInputAccessoryViewKeyboardFrameDidChangeNotification";
 static void* DCTMessageBarInputAccessoryViewContext = &DCTMessageBarInputAccessoryViewContext;

@@ -13,9 +13,3 @@
 @property (nonatomic) CGFloat height;
 @property (nonatomic, weak) id<DCTMessageBarInputAccessoryViewDelegate> delegate;
 @end
-
-
-
-@protocol DCTMessageBarInputAccessoryViewDelegate <NSObject>
-- (void)inputAccessoryView:(DCTMessageBarInputAccessoryView *)inputAccessoryView keyboardDidChangeFrame:(CGRect)frame;
-@end

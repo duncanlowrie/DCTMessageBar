@@ -18,14 +18,15 @@
 		24D55E0219D80B09005E2016 /* DCTMessageBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D55DFD19D80B09005E2016 /* DCTMessageBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24D55E0319D80B09005E2016 /* DCTMessageBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D55DFE19D80B09005E2016 /* DCTMessageBar.m */; };
 		24D55E0419D80B09005E2016 /* DCTMessageBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24D55DFF19D80B09005E2016 /* DCTMessageBar.xib */; };
-		24D55E0519D80B09005E2016 /* DCTMessageBarTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D55E0019D80B09005E2016 /* DCTMessageBarTextView.h */; };
+		24D55E0519D80B09005E2016 /* DCTMessageBarTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D55E0019D80B09005E2016 /* DCTMessageBarTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24D55E0619D80B09005E2016 /* DCTMessageBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24D55E0119D80B09005E2016 /* DCTMessageBarTextView.m */; };
 		24D55E1319D80F5D005E2016 /* DCTMessageBarDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 24D55E1219D80D8C005E2016 /* DCTMessageBarDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F6C82A1A16587F005D595D /* DCTMessageBarInputAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F6C8281A16587F005D595D /* DCTMessageBarInputAccessoryView.h */; };
 		24F6C82B1A16587F005D595D /* DCTMessageBarInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C8291A16587F005D595D /* DCTMessageBarInputAccessoryView.m */; };
-		24F6C83C1A16644C005D595D /* DCTMessageBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F6C83A1A16644C005D595D /* DCTMessageBarController.h */; };
+		24F6C83C1A16644C005D595D /* DCTMessageBarController.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F6C83A1A16644C005D595D /* DCTMessageBarController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24F6C83D1A16644C005D595D /* DCTMessageBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24F6C83B1A16644C005D595D /* DCTMessageBarController.m */; };
-		24F6C83F1A1664D3005D595D /* DCTMessageBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24F6C83E1A1664D3005D595D /* DCTMessageBar.storyboard */; };
+		24F6C84E1A1772E3005D595D /* DCTMessageBarInputAccessoryViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F6C84D1A17729C005D595D /* DCTMessageBarInputAccessoryViewDelegate.h */; };
+		24F6C84F1A1772E7005D595D /* DCTMessageBarControllerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 24F6C84C1A176FC4005D595D /* DCTMessageBarControllerDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,7 +93,8 @@
 		24F6C8291A16587F005D595D /* DCTMessageBarInputAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTMessageBarInputAccessoryView.m; sourceTree = "<group>"; };
 		24F6C83A1A16644C005D595D /* DCTMessageBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DCTMessageBarController.h; sourceTree = "<group>"; };
 		24F6C83B1A16644C005D595D /* DCTMessageBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DCTMessageBarController.m; sourceTree = "<group>"; };
-		24F6C83E1A1664D3005D595D /* DCTMessageBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DCTMessageBar.storyboard; sourceTree = "<group>"; };
+		24F6C84C1A176FC4005D595D /* DCTMessageBarControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTMessageBarControllerDelegate.h; sourceTree = "<group>"; };
+		24F6C84D1A17729C005D595D /* DCTMessageBarInputAccessoryViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DCTMessageBarInputAccessoryViewDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,14 +158,15 @@
 				24D55DFE19D80B09005E2016 /* DCTMessageBar.m */,
 				24D55DFF19D80B09005E2016 /* DCTMessageBar.xib */,
 				24D55E1219D80D8C005E2016 /* DCTMessageBarDelegate.h */,
+				24F6C83A1A16644C005D595D /* DCTMessageBarController.h */,
+				24F6C83B1A16644C005D595D /* DCTMessageBarController.m */,
+				24F6C84C1A176FC4005D595D /* DCTMessageBarControllerDelegate.h */,
 				24D55E0019D80B09005E2016 /* DCTMessageBarTextView.h */,
 				24D55E0119D80B09005E2016 /* DCTMessageBarTextView.m */,
 				24F6C8281A16587F005D595D /* DCTMessageBarInputAccessoryView.h */,
 				24F6C8291A16587F005D595D /* DCTMessageBarInputAccessoryView.m */,
+				24F6C84D1A17729C005D595D /* DCTMessageBarInputAccessoryViewDelegate.h */,
 				24D55DE119D80AB3005E2016 /* Info.plist */,
-				24F6C83A1A16644C005D595D /* DCTMessageBarController.h */,
-				24F6C83B1A16644C005D595D /* DCTMessageBarController.m */,
-				24F6C83E1A1664D3005D595D /* DCTMessageBar.storyboard */,
 			);
 			path = DCTMessageBar;
 			sourceTree = "<group>";
@@ -193,10 +196,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				24D55E0219D80B09005E2016 /* DCTMessageBar.h in Headers */,
-				24F6C82A1A16587F005D595D /* DCTMessageBarInputAccessoryView.h in Headers */,
-				24D55E1319D80F5D005E2016 /* DCTMessageBarDelegate.h in Headers */,
 				24F6C83C1A16644C005D595D /* DCTMessageBarController.h in Headers */,
+				24F6C82A1A16587F005D595D /* DCTMessageBarInputAccessoryView.h in Headers */,
+				24F6C84F1A1772E7005D595D /* DCTMessageBarControllerDelegate.h in Headers */,
 				24D55E0519D80B09005E2016 /* DCTMessageBarTextView.h in Headers */,
+				24D55E1319D80F5D005E2016 /* DCTMessageBarDelegate.h in Headers */,
+				24F6C84E1A1772E3005D595D /* DCTMessageBarInputAccessoryViewDelegate.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +297,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24F6C83F1A1664D3005D595D /* DCTMessageBar.storyboard in Resources */,
 				24D55E0419D80B09005E2016 /* DCTMessageBar.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,11 +10,6 @@
 
 @implementation DCTMessageBarTextView
 
-- (void)awakeFromNib {
-	[super awakeFromNib];
-	self.enabled = YES;
-}
-
 - (void)setPreferredMaxLayoutWidth:(CGFloat)preferredMaxLayoutWidth {
 	_preferredMaxLayoutWidth = preferredMaxLayoutWidth;
 	[self invalidateIntrinsicContentSize];
@@ -25,30 +20,19 @@
 	[self invalidateIntrinsicContentSize];
 }
 
+- (void)layoutSubviews {
+	[super layoutSubviews];
+	self.contentOffset = CGPointZero;
+}
+
 - (CGSize)intrinsicContentSize {
 	CGSize max = CGSizeMake(self.preferredMaxLayoutWidth, CGFLOAT_MAX);
-	CGSize size = CGSizeZero;
-
-	NSString *text = self.text;
-	if (text.length == 0) {
-		self.text = @"A";
-		size = [self sizeThatFits:max];
-		self.text = text;
-	} else {
-		size = [self sizeThatFits:max];
-	}
-
-	return size;
+	return [self sizeThatFits:max];
 }
 
 - (void)setInputAccessoryView:(UIView *)inputAccessoryView {
-	NSLog(@"%@", NSStringFromSelector(_cmd));
 	[super setInputAccessoryView:inputAccessoryView];
-}
-
-- (BOOL)becomeFirstResponder {
-	NSLog(@"%@", NSStringFromSelector(_cmd));
-	return [super becomeFirstResponder];
+	[self reloadInputViews];
 }
 
 @end
