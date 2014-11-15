@@ -26,6 +26,5 @@ FOUNDATION_EXPORT const unsigned char DCTMessageBarVersionString[];
 @property (nonatomic, weak) IBOutlet id<DCTMessageBarDelegate> delegate;
 
 @property (nonatomic, readonly) UITextView *textView;
-@property (nonatomic) IBOutlet NSLayoutConstraint *bottomMarginConstraint;
 
 @end

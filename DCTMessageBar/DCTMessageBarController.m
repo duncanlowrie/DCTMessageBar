@@ -13,6 +13,7 @@
 #import "DCTMessageBarInputAccessoryViewDelegate.h"
 
 @interface DCTMessageBarController () <DCTMessageBarDelegate, DCTMessageBarInputAccessoryViewDelegate>
+@property (nonatomic) IBOutlet NSLayoutConstraint *bottomMarginConstraint;
 @end
 
 @implementation DCTMessageBarController
@@ -111,7 +112,7 @@
 	CGFloat value = viewHeight - keyboardMinY - inputHeight;
 
 	if (value < 0) value = 0;
-	self.messageBar.bottomMarginConstraint.constant = value;
+	self.bottomMarginConstraint.constant = value;
 }
 
 #pragma mark - UIKeyboard Notifications

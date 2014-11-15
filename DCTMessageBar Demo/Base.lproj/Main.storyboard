@@ -160,7 +160,6 @@
                                     <constraint firstAttribute="trailing" secondItem="ptw-ix-o97" secondAttribute="trailing" id="xWC-r2-u3x"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="bottomMarginConstraint" destination="ZZ2-wR-rke" id="nor-Dr-tVm"/>
                                     <outlet property="delegate" destination="9bZ-TA-GaQ" id="gG9-OY-vev"/>
                                     <outlet property="mbTextView" destination="Epp-JO-Xus" id="0tg-g9-a8a"/>
                                     <outlet property="placeholderTextView" destination="wWr-MG-ueH" id="7P4-Qh-8vi"/>
@@ -185,6 +184,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vGB-iL-gtp"/>
                     <connections>
+                        <outlet property="bottomMarginConstraint" destination="ZZ2-wR-rke" id="h84-7x-DlE"/>
                         <outlet property="messageBar" destination="oP9-gO-QWf" id="iwJ-oW-g3f"/>
                     </connections>
                 </viewController>
