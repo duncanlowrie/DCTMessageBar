@@ -11,13 +11,17 @@
 #import "DCTMessageBar.h"
 #import "DCTMessageBarInputAccessoryView.h"
 #import "DCTMessageBarInputAccessoryViewDelegate.h"
+#import "DCTMessageBarNavigationItem.h"
 
 @interface DCTMessageBarController () <DCTMessageBarDelegate, DCTMessageBarInputAccessoryViewDelegate>
+@property (nonatomic, readonly) DCTMessageBarNavigationItem *parentNavigationItem;
+@property (nonatomic, readwrite) UIViewController *viewController;
 @property (nonatomic) IBOutlet NSLayoutConstraint *bottomMarginConstraint;
 @property (nonatomic) UIView *inputAccessoryView;
 @end
 
 @implementation DCTMessageBarController
+@synthesize parentNavigationItem = _parentNavigationItem;
 
 #pragma mark - Initialization
 
@@ -59,6 +63,10 @@
 }
 
 #pragma mark - UIViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	self.viewController = segue.destinationViewController;
+}
 
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -174,6 +182,40 @@
 
 - (void)inputAccessoryView:(DCTMessageBarInputAccessoryView *)inputAccessoryView keyboardDidChangeFrame:(CGRect)frame {
 	[self setKeyboardFrame:frame];
+}
+
+#pragma mark - UIViewController Containment
+
+- (void)setViewController:(UIViewController *)viewController {
+	_viewController = viewController;
+	self.parentNavigationItem.childNavigationItem = viewController.navigationItem;
+}
+
+- (UINavigationItem *)navigationItem {
+	return self.parentNavigationItem;
+}
+
+- (DCTMessageBarNavigationItem *)parentNavigationItem {
+	if (!_parentNavigationItem) {
+		_parentNavigationItem = [[DCTMessageBarNavigationItem alloc] initWithChildNavigationItem:self.viewController.navigationItem];
+	}
+	return _parentNavigationItem;
+}
+
+- (UIViewController *)childViewControllerForStatusBarStyle {
+	return self.viewController;
+}
+
+- (UIViewController *)childViewControllerForStatusBarHidden {
+	return self.viewController;
+}
+
+- (BOOL)shouldAutorotate {
+	return self.viewController.shouldAutorotate;
+}
+
+- (NSUInteger)supportedInterfaceOrientations {
+	return self.viewController.supportedInterfaceOrientations;
 }
 
 @end

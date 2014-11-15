@@ -23,6 +23,17 @@
 	self.dct_messageBarController.messageBar.placeholder = @"Post message";
 }
 
+- (void)viewDidLayoutSubviews {
+	[super viewDidLayoutSubviews];
+
+	UIEdgeInsets insets = self.tableView.contentInset;
+	insets.top = self.topLayoutGuide.length;
+	self.tableView.contentInset = insets;
+
+	insets = self.tableView.scrollIndicatorInsets;
+	insets.top = self.topLayoutGuide.length;
+	self.tableView.scrollIndicatorInsets = insets;
+}
 
 - (void)addMessage:(NSString *)messages {
 	NSIndexPath *indexPath = [NSIndexPath indexPathForItem:self.messages.count inSection:0];

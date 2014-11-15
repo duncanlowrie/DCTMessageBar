@@ -87,11 +87,13 @@ const BOOL DCTMessageBarDebug = NO;
 	_mbTextView = mbTextView;
 	_mbTextView.layer.cornerRadius = 6.0f;
 	_mbTextView.layer.borderColor = [[UIColor colorWithWhite:0.8f alpha:1.0f] CGColor];
+	_mbTextView.scrollsToTop = NO;
 }
 
 - (void)setText:(NSString *)text {
 	self.textView.text = text;
 	[self updateViews];
+	[self.delegate messageBar:self didChangeText:text];
 }
 
 - (NSString *)text {
