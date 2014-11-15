@@ -10,6 +10,5 @@
 @protocol DCTMessageBarInputAccessoryViewDelegate;
 
 @interface DCTMessageBarInputAccessoryView : UIView
-@property (nonatomic) CGFloat height;
 @property (nonatomic, weak) id<DCTMessageBarInputAccessoryViewDelegate> delegate;
 @end

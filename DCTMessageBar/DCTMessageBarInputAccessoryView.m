@@ -9,7 +9,6 @@
 #import "DCTMessageBarInputAccessoryView.h"
 #import "DCTMessageBarInputAccessoryViewDelegate.h"
 
-NSString *const DCTMessageBarInputAccessoryViewKeyboardFrameDidChangeNotification = @"DCTMessageBarInputAccessoryViewKeyboardFrameDidChangeNotification";
 static void* DCTMessageBarInputAccessoryViewContext = &DCTMessageBarInputAccessoryViewContext;
 
 @interface DCTMessageBarInputAccessoryView ()
@@ -25,11 +24,6 @@ static void* DCTMessageBarInputAccessoryViewContext = &DCTMessageBarInputAccesso
 - (void)willMoveToSuperview:(UIView *)superview {
 	[super willMoveToSuperview:superview];
 	self.observedSuperview = superview;
-}
-
-- (void)setHeight:(CGFloat)height {
-	_height = height;
-	self.heightConstraint.constant = height;
 }
 
 - (void)setObservedSuperview:(UIView *)observedSuperview {
@@ -48,28 +42,6 @@ static void* DCTMessageBarInputAccessoryViewContext = &DCTMessageBarInputAccesso
 	}
 
 	[self.delegate inputAccessoryView:self keyboardDidChangeFrame:self.superview.frame];
-}
-
-- (NSLayoutConstraint *)heightConstraint {
-
-	for (NSLayoutConstraint *constraint in self.constraints) {
-
-		if (constraint.firstAttribute == NSLayoutAttributeHeight &&
-			constraint.secondAttribute == NSLayoutAttributeNotAnAttribute &&
-			[constraint.firstItem isEqual:self] &&
-			constraint.secondItem == nil) {
-			return constraint;
-		}
-
-		if (constraint.secondAttribute == NSLayoutAttributeHeight &&
-			constraint.firstAttribute == NSLayoutAttributeNotAnAttribute &&
-			[constraint.secondItem isEqual:self] &&
-			constraint.firstItem == nil) {
-			return constraint;
-		}
-	}
-
-	return nil;
 }
 
 @end
