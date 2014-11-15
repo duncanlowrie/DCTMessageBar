@@ -30,9 +30,4 @@
 	return [self sizeThatFits:max];
 }
 
-- (void)setInputAccessoryView:(UIView *)inputAccessoryView {
-	[super setInputAccessoryView:inputAccessoryView];
-	[self reloadInputViews];
-}
-
 @end

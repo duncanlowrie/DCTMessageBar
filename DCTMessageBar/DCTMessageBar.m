@@ -9,7 +9,7 @@
 #import "DCTMessageBar.h"
 #import "DCTMessageBarTextView.h"
 
-const BOOL DCTMessageBarDebug = YES;
+const BOOL DCTMessageBarDebug = NO;
 
 @interface DCTMessageBar () <UITextViewDelegate>
 @property (nonatomic) IBOutlet DCTMessageBarTextView *mbTextView;

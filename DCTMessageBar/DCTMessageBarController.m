@@ -14,6 +14,7 @@
 
 @interface DCTMessageBarController () <DCTMessageBarDelegate, DCTMessageBarInputAccessoryViewDelegate>
 @property (nonatomic) IBOutlet NSLayoutConstraint *bottomMarginConstraint;
+@property (nonatomic) UIView *inputAccessoryView;
 @end
 
 @implementation DCTMessageBarController
@@ -70,7 +71,25 @@
 	}
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+	[super viewDidAppear:animated];
+
+	[UIView performWithoutAnimation:^{
+		[self reloadInputAccessoryView];
+	}];
+}
+
+- (BOOL)canBecomeFirstResponder {
+	return YES;
+}
+
 #pragma mark - DCTMessageBarController
+
+- (void)setInputAccessoryView:(UIView *)inputAccessoryView {
+	_inputAccessoryView = inputAccessoryView;
+	[self reloadInputViews];
+	[self.messageBar.textView reloadInputViews]; // Because when typing the textview is the firstResponder
+}
 
 - (void)updateHeight {
 
@@ -86,26 +105,23 @@
 
 - (void)reloadInputAccessoryView {
 
-	NSInteger inputAccessoryHeight = CGRectGetHeight(self.messageBar.textView.inputAccessoryView.bounds) + 0.5f;
+	NSInteger inputAccessoryHeight = CGRectGetHeight(self.inputAccessoryView.bounds) + 0.5f;
 	NSInteger messageBarHeight = CGRectGetHeight(self.messageBar.bounds) + 0.5f;
 
-	if (!self.messageBar.textView.isFirstResponder) {
-
-		self.messageBar.textView.inputAccessoryView = nil;
-
-	} else if (inputAccessoryHeight != messageBarHeight) {
-
-		DCTMessageBarInputAccessoryView *inputAccessoryView = [[DCTMessageBarInputAccessoryView alloc] initWithFrame:self.messageBar.bounds];
-		inputAccessoryView.delegate = self;
-		inputAccessoryView.backgroundColor = DCTMessageBarDebug ? [[UIColor yellowColor] colorWithAlphaComponent:0.05f] : [UIColor clearColor];
-		inputAccessoryView.userInteractionEnabled = NO;
-		self.messageBar.textView.inputAccessoryView = inputAccessoryView;
+	if (inputAccessoryHeight == messageBarHeight) {
+		return;
 	}
+
+	DCTMessageBarInputAccessoryView *inputAccessoryView = [[DCTMessageBarInputAccessoryView alloc] initWithFrame:self.messageBar.bounds];
+	inputAccessoryView.backgroundColor = DCTMessageBarDebug ? [[UIColor yellowColor] colorWithAlphaComponent:0.1f] : [UIColor clearColor];
+	inputAccessoryView.userInteractionEnabled = NO;
+	inputAccessoryView.delegate = self;
+	self.inputAccessoryView = inputAccessoryView;
 }
 
 - (void)setKeyboardFrame:(CGRect)keyboardFrame {
 
-	CGFloat inputHeight = CGRectGetHeight(self.messageBar.textView.inputAccessoryView.bounds);
+	CGFloat inputHeight = CGRectGetHeight(self.inputAccessoryView.bounds);
 	CGFloat keyboardMinY = CGRectGetMinY(keyboardFrame);
 	CGFloat viewHeight = CGRectGetHeight(self.messageBar.superview.bounds);
 
