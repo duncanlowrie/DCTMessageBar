@@ -21,7 +21,6 @@
 @end
 
 @implementation DCTMessageBarController
-@synthesize parentNavigationItem = _parentNavigationItem;
 
 #pragma mark - Initialization
 
@@ -34,11 +33,15 @@
 }
 
 - (void)sharedInit {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdirect-ivar-access"
 	NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
 	[notificationCenter addObserver:self selector:@selector(keyboardWillHideShowNotification:) name:UIKeyboardWillHideNotification object:nil];
 	[notificationCenter addObserver:self selector:@selector(keyboardWillHideShowNotification:) name:UIKeyboardWillShowNotification object:nil];
 	[notificationCenter addObserver:self selector:@selector(keyboardDidHideShowNotification:) name:UIKeyboardDidHideNotification object:nil];
 	[notificationCenter addObserver:self selector:@selector(keyboardDidHideShowNotification:) name:UIKeyboardDidShowNotification object:nil];
+	_parentNavigationItem = [[DCTMessageBarNavigationItem alloc] initWithChildNavigationItem:_viewController.navigationItem];
+#pragma clang diagnostic pop
 }
 
 - (instancetype)initWithCoder:(NSCoder *)coder {
@@ -65,6 +68,7 @@
 #pragma mark - UIViewController
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	[super prepareForSegue:segue sender:sender];
 	self.viewController = segue.destinationViewController;
 }
 
@@ -226,13 +230,6 @@
 
 - (UINavigationItem *)navigationItem {
 	return self.parentNavigationItem;
-}
-
-- (DCTMessageBarNavigationItem *)parentNavigationItem {
-	if (!_parentNavigationItem) {
-		_parentNavigationItem = [[DCTMessageBarNavigationItem alloc] initWithChildNavigationItem:self.viewController.navigationItem];
-	}
-	return _parentNavigationItem;
 }
 
 - (UIViewController *)childViewControllerForStatusBarStyle {
