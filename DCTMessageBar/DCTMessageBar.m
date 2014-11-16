@@ -10,6 +10,7 @@
 #import "DCTMessageBarTextView.h"
 
 const BOOL DCTMessageBarDebug = NO;
+const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too big for layout constraints apparently
 
 @interface DCTMessageBar () <UITextViewDelegate>
 @property (nonatomic) IBOutlet DCTMessageBarTextView *mbTextView;
@@ -17,6 +18,7 @@ const BOOL DCTMessageBarDebug = NO;
 @property (nonatomic) IBOutlet UIButton *sendButton;
 @property (nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *marginConstraints;
 @property (nonatomic) IBOutlet UIView *sizingView;
+@property (nonatomic) IBOutlet NSLayoutConstraint *maximumHeightConstraint;
 @end
 
 @implementation DCTMessageBar
@@ -94,6 +96,7 @@ const BOOL DCTMessageBarDebug = NO;
 	self.textView.text = text;
 	[self updateViews];
 	[self.delegate messageBar:self didChangeText:text];
+	[self.delegate messageBarNeedsHeightUpdate:self];
 }
 
 - (NSString *)text {
@@ -111,11 +114,42 @@ const BOOL DCTMessageBarDebug = NO;
 	[self.delegate messageBarSendButtonTapped:self];
 }
 
+- (void)setMaximumHeight:(CGFloat)maximumHeight {
+
+	NSInteger oldHeight = _maximumHeight + 0.5f;
+	NSInteger newHeight = maximumHeight + 0.5f;
+	if (oldHeight == newHeight) {
+		return;
+	}
+
+	_maximumHeight = maximumHeight;
+
+	self.maximumHeightConstraint.constant = maximumHeight;
+	[self.delegate messageBarNeedsHeightUpdate:self];
+}
+
+- (NSLayoutConstraint *)maximumHeightConstraint {
+
+	if (!_maximumHeightConstraint) {
+		_maximumHeightConstraint = [NSLayoutConstraint constraintWithItem:self
+																attribute:NSLayoutAttributeHeight
+																relatedBy:NSLayoutRelationLessThanOrEqual
+																   toItem:nil
+																attribute:NSLayoutAttributeNotAnAttribute
+															   multiplier:1.0f
+																 constant:DCTMessageBarNoMaximumHeight];
+		[self addConstraint:_maximumHeightConstraint];
+	}
+
+	return _maximumHeightConstraint;
+}
+
 #pragma mark - UITextViewDelegate
 
 - (void)textViewDidChange:(UITextView *)textView {
 	[self updateViews];
 	[self.delegate messageBar:self didChangeText:textView.text];
+	[self.delegate messageBarNeedsHeightUpdate:self];
 }
 
 @end

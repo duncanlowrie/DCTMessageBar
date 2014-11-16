@@ -200,10 +200,11 @@
 
 #pragma mark - DCTMessageBarDelegate
 
-- (void)messageBar:(DCTMessageBar *)messageBar didChangeText:(NSString *)text {
-
+- (void)messageBarNeedsHeightUpdate:(DCTMessageBar *)messageBar {
 	[self updateHeight];
+}
 
+- (void)messageBar:(DCTMessageBar *)messageBar didChangeText:(NSString *)text {
 	if ([self.delegate respondsToSelector:@selector(messageBarController:didChangeText:)]) {
 		[self.delegate messageBarController:self didChangeText:text];
 	}

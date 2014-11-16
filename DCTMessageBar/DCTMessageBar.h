@@ -13,6 +13,7 @@
 #import "UIViewController+DCTMessageBarController.h"
 
 extern const BOOL DCTMessageBarDebug;
+extern const CGFloat DCTMessageBarNoMaximumHeight;
 
 //! Project version number and string for DCTMessageBar.
 FOUNDATION_EXPORT double DCTMessageBarVersionNumber;
@@ -26,5 +27,7 @@ FOUNDATION_EXPORT const unsigned char DCTMessageBarVersionString[];
 @property (nonatomic, weak) IBOutlet id<DCTMessageBarDelegate> delegate;
 
 @property (nonatomic, readonly) UITextView *textView;
+
+@property (nonatomic) CGFloat maximumHeight;
 
 @end
