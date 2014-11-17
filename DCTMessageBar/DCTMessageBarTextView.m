@@ -22,7 +22,6 @@
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-	self.contentOffset = CGPointZero;
 }
 
 - (CGSize)intrinsicContentSize {
