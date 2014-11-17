@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="60" id="Df1-Wl-3kI" customClass="DCTMessageBar">
+        <view opaque="NO" multipleTouchEnabled="YES" contentMode="center" placeholderIntrinsicWidth="600" placeholderIntrinsicHeight="60" id="Df1-Wl-3kI" customClass="DCTMessageBar">
             <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -25,9 +25,6 @@
                             </constraints>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            <connections>
-                                <outlet property="delegate" destination="Df1-Wl-3kI" id="Yeo-e9-a93"/>
-                            </connections>
                         </textView>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VzL-cd-wrB" userLabel="Send">
                             <rect key="frame" x="553" y="19" width="39" height="32"/>
@@ -69,7 +66,7 @@
                 <constraint firstAttribute="trailing" secondItem="HeD-0R-ABA" secondAttribute="trailing" id="Sf0-DO-aRD"/>
                 <constraint firstAttribute="bottom" secondItem="oOS-rk-eQ4" secondAttribute="bottom" id="iR5-Vh-Qvf"/>
                 <constraint firstItem="oOS-rk-eQ4" firstAttribute="top" secondItem="Df1-Wl-3kI" secondAttribute="top" id="pNE-zI-5LE"/>
-                <constraint firstItem="HeD-0R-ABA" firstAttribute="top" secondItem="Df1-Wl-3kI" secondAttribute="top" constant="1" id="pOV-Vk-Tbt"/>
+                <constraint firstAttribute="top" secondItem="HeD-0R-ABA" secondAttribute="top" constant="-1" id="pOV-Vk-Tbt"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
