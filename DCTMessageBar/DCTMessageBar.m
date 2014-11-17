@@ -19,6 +19,7 @@ const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too b
 @property (nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *marginConstraints;
 @property (nonatomic) IBOutlet UIView *sizingView;
 @property (nonatomic) IBOutlet NSLayoutConstraint *maximumHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeightConstraint;
 @end
 
 @implementation DCTMessageBar
@@ -150,6 +151,13 @@ const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too b
 	[self updateViews];
 	[self.delegate messageBar:self didChangeText:textView.text];
 	[self.delegate messageBarNeedsHeightUpdate:self];
+    
+    self.textViewHeightConstraint.constant = textView.contentSize.height;
+    
+//    NSLog(@"textView.contentSize.height = %f", textView.contentSize.height);
+//    NSLog(@"textView.frame.size.height = %f", textView.frame.size.height);
+//    NSLog(@"textView.text.length = %@", @(textView.text.length));
+
 }
 
 @end

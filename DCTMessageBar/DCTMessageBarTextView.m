@@ -25,9 +25,11 @@
 	self.contentOffset = CGPointZero;
 }
 
-- (CGSize)intrinsicContentSize {
-	CGSize max = CGSizeMake(self.preferredMaxLayoutWidth, CGFLOAT_MAX);
-	return [self sizeThatFits:max];
-}
+//- (CGSize)intrinsicContentSize {
+//    CGSize max = CGSizeMake(self.preferredMaxLayoutWidth, CGFLOAT_MAX);
+//    CGSize size = [self sizeThatFits:max];
+//    NSLog(@"%@ %@", NSStringFromSelector(_cmd), NSStringFromCGSize(size));
+//    return size;
+//}
 
 @end

@@ -22,7 +22,7 @@
 		<key>8135D7925B4DEBCEDBD55E7A8465231F02F8C3A1</key>
 		<string>../..</string>
 		<key>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</key>
-		<string>../..Configurations/</string>
+		<string>../..Configurations</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>github.com:danielctull-tests/Commenting.git</string>
@@ -46,7 +46,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>8FDCB8C6CFBA78E0E3667763514775D0D62067AD</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Configurations</string>
+			<string>CommentingConfigurations</string>
 		</dict>
 	</array>
 </dict>
