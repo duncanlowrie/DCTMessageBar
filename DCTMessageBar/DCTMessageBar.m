@@ -9,7 +9,7 @@
 #import "DCTMessageBar.h"
 #import "DCTMessageBarTextView.h"
 
-const BOOL DCTMessageBarDebug = NO;
+const BOOL DCTMessageBarDebug = YES;
 const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too big for layout constraints apparently
 
 @interface DCTMessageBar ()
@@ -19,6 +19,8 @@ const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too b
 @property (nonatomic) IBOutletCollection(NSLayoutConstraint) NSArray *marginConstraints;
 @property (nonatomic) IBOutlet UIView *sizingView;
 @property (nonatomic) IBOutlet NSLayoutConstraint *maximumHeightConstraint;
+
+@property (nonatomic) UIView *textViewDebug;
 @end
 
 @implementation DCTMessageBar
@@ -87,6 +89,34 @@ const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too b
 	CGFloat alpha = empty ? 1.0f : 0.0f;
 	self.placeholderTextView.alpha = alpha;
 	self.sendButton.enabled = !empty;
+
+
+	NSInteger intrinsicHeight = self.textView.intrinsicContentSize.height + 0.5f;
+	NSInteger height = self.textView.bounds.size.height + 0.5f;
+
+	BOOL correctHeight = intrinsicHeight == height;
+	self.textViewDebug.hidden = correctHeight;
+	if (correctHeight) {
+		self.textView.contentOffset = CGPointZero;
+		return;
+	}
+
+	[UIView performWithoutAnimation:^{
+		UITextView *textView = self.textView;
+		UITextPosition *position = textView.selectedTextRange.end;
+		CGRect rect = [textView caretRectForPosition:position];
+		CGFloat bottomInset = textView.textContainerInset.bottom;
+		rect.size.height += bottomInset;
+		[self.textView scrollRectToVisible:rect animated:NO];
+
+		self.textViewDebug.frame = rect;
+		NSLog(@"%@ %@ %@", NSStringFromSelector(_cmd), position, NSStringFromCGRect(rect));
+
+
+	}];
+
+
+//	[self.textView scrollRangeToVisible:self.textView.selectedRange];
 }
 
 - (void)setMbTextView:(DCTMessageBarTextView *)mbTextView {
