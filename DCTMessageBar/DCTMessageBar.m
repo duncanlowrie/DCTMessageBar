@@ -12,7 +12,7 @@
 const BOOL DCTMessageBarDebug = NO;
 const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too big for layout constraints apparently
 
-@interface DCTMessageBar () <UITextViewDelegate>
+@interface DCTMessageBar ()
 @property (nonatomic) IBOutlet DCTMessageBarTextView *mbTextView;
 @property (nonatomic) IBOutlet UITextView *placeholderTextView;
 @property (nonatomic) IBOutlet UIButton *sendButton;
@@ -24,6 +24,10 @@ const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too b
 @implementation DCTMessageBar
 
 #pragma mark - NSObject
+
+- (void)dealloc {
+	self.mbTextView = nil;
+}
 
 - (instancetype)init {
 	Class class = [self class];
@@ -72,7 +76,7 @@ const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too b
 	self.mbTextView.preferredMaxLayoutWidth = currentSize.width - totalMargins - sendWidth;
 }
 
-#pragma mark - CommentBar
+#pragma mark - DCTMessageBar
 
 - (UITextView *)textView {
 	return self.mbTextView;
@@ -86,17 +90,35 @@ const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too b
 }
 
 - (void)setMbTextView:(DCTMessageBarTextView *)mbTextView {
+
+	NSNotificationCenter *notificationCenter = [NSNotificationCenter defaultCenter];
+
+	if (_mbTextView) {
+		[notificationCenter removeObserver:self name:UITextViewTextDidChangeNotification object:_mbTextView];
+	}
+
 	_mbTextView = mbTextView;
+
+	if (_mbTextView) {
+		[notificationCenter addObserver:self selector:@selector(textViewDidChange:) name:UITextViewTextDidChangeNotification object:_mbTextView];
+	}
+
 	_mbTextView.layer.cornerRadius = 6.0f;
 	_mbTextView.layer.borderColor = [[UIColor colorWithWhite:0.8f alpha:1.0f] CGColor];
 	_mbTextView.scrollsToTop = NO;
+
+	if (DCTMessageBarDebug) {
+		self.textViewDebug = [UIView new];
+		self.textViewDebug.backgroundColor = [[UIColor magentaColor] colorWithAlphaComponent:0.5];
+		[_mbTextView addSubview:self.textViewDebug];
+	}
 }
 
 - (void)setText:(NSString *)text {
 	self.textView.text = text;
-	[self updateViews];
 	[self.delegate messageBar:self didChangeText:text];
 	[self.delegate messageBarNeedsHeightUpdate:self];
+	[self updateViews];
 }
 
 - (NSString *)text {
@@ -146,10 +168,10 @@ const CGFloat DCTMessageBarNoMaximumHeight = 1000000.0f; // CGFLOAT_MAX is too b
 
 #pragma mark - UITextViewDelegate
 
-- (void)textViewDidChange:(UITextView *)textView {
-	[self updateViews];
-	[self.delegate messageBar:self didChangeText:textView.text];
+- (void)textViewDidChange:(NSNotification *)notification {
+	[self.delegate messageBar:self didChangeText:self.textView.text];
 	[self.delegate messageBarNeedsHeightUpdate:self];
+	[self updateViews];
 }
 
 @end
